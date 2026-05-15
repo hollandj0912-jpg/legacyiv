@@ -23,11 +23,11 @@
 :root{
 
   --orange:#ff6a00;
-  --orangeLight:#ff914d;
+  --orangeLight:#ff924d;
 
   --dark:#070707;
   --dark2:#101010;
-  --card:#171717;
+  --card:#181818;
 
   --white:#ffffff;
   --gray:#b8b8b8;
@@ -53,7 +53,9 @@ body{
   #070707;
 
   color:white;
+
   font-family:'Barlow',sans-serif;
+
   overflow-x:hidden;
 
 }
@@ -89,6 +91,7 @@ nav{
 
   display:flex;
   list-style:none;
+
   gap:38px;
 
 }
@@ -96,7 +99,8 @@ nav{
 .nav-links a{
 
   text-decoration:none;
-  color:#d1d1d1;
+
+  color:#d0d0d0;
 
   text-transform:uppercase;
   letter-spacing:1px;
@@ -115,6 +119,7 @@ nav{
 .phone{
 
   color:var(--orange);
+
   text-decoration:none;
 
   font-weight:800;
@@ -133,9 +138,11 @@ nav{
   display:flex;
   align-items:center;
 
-  padding:110px 60px 90px;
+  padding:120px 60px 100px;
 
   position:relative;
+
+  overflow:hidden;
 
 }
 
@@ -147,7 +154,7 @@ nav{
   inset:0;
 
   background:
-  radial-gradient(circle at 80% 30%,
+  radial-gradient(circle at 80% 25%,
   rgba(255,106,0,.15),
   transparent 35%);
 
@@ -164,72 +171,79 @@ nav{
 
 }
 
-.hero-visual{
+/* OVERLAY STATS */
 
-  display:flex;
-  gap:16px;
+.hero-overlay-stats{
 
-  margin-bottom:34px;
+  position:absolute;
 
-  flex-wrap:wrap;
+  top:80px;
+  right:60px;
 
-}
+  width:500px;
+  height:300px;
 
-.floating-stat{
+  opacity:.42;
 
-  background:rgba(255,255,255,.03);
+  pointer-events:none;
 
-  border:1px solid rgba(255,106,0,.14);
-
-  backdrop-filter:blur(12px);
-
-  padding:14px 22px;
-
-  border-radius:12px;
-
-  box-shadow:
-  0 0 20px rgba(255,106,0,.08);
-
-  transition:.3s;
+  z-index:1;
 
 }
 
-.floating-stat:hover{
+.overlay-stat{
 
-  transform:translateY(-4px);
-
-  border-color:rgba(255,106,0,.35);
+  position:absolute;
 
 }
 
-.floating-stat small{
+.overlay-stat span{
 
-  color:#9c9c9c;
+  display:block;
+
+  font-size:68px;
+  font-weight:900;
+
+  line-height:1;
+
+  color:var(--orange);
+
+  text-shadow:var(--glow);
+
+}
+
+.overlay-stat small{
+
+  color:#9d9d9d;
 
   text-transform:uppercase;
-  letter-spacing:1px;
+
+  letter-spacing:2px;
 
   font-size:11px;
 
 }
 
-.floating-stat h2{
+.stat1{
+  top:0;
+  right:0;
+}
 
-  margin-top:8px;
+.stat2{
+  top:100px;
+  left:50px;
+}
 
-  color:var(--orange);
-
-  font-size:34px;
-
-  text-shadow:var(--glow);
-
+.stat3{
+  bottom:0;
+  right:100px;
 }
 
 .hero h1{
 
   font-family:'Bebas Neue',sans-serif;
 
-  font-size:clamp(68px,9vw,120px);
+  font-size:clamp(72px,9vw,124px);
 
   line-height:.92;
 
@@ -265,6 +279,7 @@ nav{
 
   display:flex;
   gap:18px;
+
   flex-wrap:wrap;
 
 }
@@ -290,6 +305,7 @@ nav{
 .btn-primary{
 
   background:var(--orange);
+
   color:white;
 
   box-shadow:var(--glow);
@@ -307,6 +323,7 @@ nav{
 .btn-outline{
 
   border:1px solid var(--orange);
+
   color:white;
 
 }
@@ -717,6 +734,10 @@ footer{
     grid-template-columns:1fr;
   }
 
+  .hero-overlay-stats{
+    opacity:.22;
+  }
+
 }
 
 @media(max-width:700px){
@@ -730,7 +751,11 @@ footer{
   }
 
   .hero{
-    padding:90px 20px 70px;
+    padding:100px 20px 80px;
+  }
+
+  .hero-overlay-stats{
+    display:none;
   }
 
   .section{
@@ -792,35 +817,37 @@ footer{
 
 <section class="hero">
 
-  <div class="hero-content">
+  <!-- OVERLAY STATS -->
 
-    <div class="hero-visual">
+  <div class="hero-overlay-stats">
 
-      <div class="floating-stat">
+    <div class="overlay-stat stat1">
 
-        <small>Leads Generated</small>
+      <span>142</span>
 
-        <h2>142</h2>
-
-      </div>
-
-      <div class="floating-stat">
-
-        <small>Appointments</small>
-
-        <h2>35</h2>
-
-      </div>
-
-      <div class="floating-stat">
-
-        <small>Conversion Rate</small>
-
-        <h2>24%</h2>
-
-      </div>
+      <small>Leads Generated</small>
 
     </div>
+
+    <div class="overlay-stat stat2">
+
+      <span>35</span>
+
+      <small>Appointments</small>
+
+    </div>
+
+    <div class="overlay-stat stat3">
+
+      <span>24%</span>
+
+      <small>Conversion Rate</small>
+
+    </div>
+
+  </div>
+
+  <div class="hero-content">
 
     <h1>
 
