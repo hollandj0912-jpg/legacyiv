@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Legacy IV Digital Solutions</title>
 
@@ -21,7 +21,7 @@
 
 :root{
   --orange:#ff6a00;
-  --orangeLight:#ff8d3a;
+  --orangeLight:#ff914d;
 
   --dark:#080808;
   --dark2:#111111;
@@ -58,11 +58,11 @@ nav{
   top:0;
   z-index:999;
   background:rgba(0,0,0,.96);
-  border-bottom:1px solid #1e1e1e;
+  border-bottom:1px solid #1f1f1f;
 }
 
 .logo-wrap img{
-  height:52px;
+  height:58px;
   display:block;
 }
 
@@ -110,10 +110,12 @@ nav{
   content:'';
   position:absolute;
   inset:0;
+
   background:
   radial-gradient(circle at 70% 40%,
   rgba(255,106,0,.15),
   transparent 40%);
+
   pointer-events:none;
 }
 
@@ -124,7 +126,7 @@ nav{
 
 .hero h1{
   font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(58px,8vw,105px);
+  font-size:clamp(60px,8vw,110px);
   line-height:.93;
   letter-spacing:1px;
   margin-bottom:28px;
@@ -182,11 +184,6 @@ nav{
 }
 
 /* DASHBOARD */
-
-.dashboard-wrap{
-  position:relative;
-  z-index:2;
-}
 
 .dashboard{
   background:#141414;
@@ -266,9 +263,9 @@ nav{
   box-shadow:var(--glow);
 }
 
-.chart-fill.one{width:78%;}
-.chart-fill.two{width:61%;}
-.chart-fill.three{width:92%;}
+.one{width:78%;}
+.two{width:61%;}
+.three{width:92%;}
 
 /* SECTION */
 
@@ -318,6 +315,7 @@ nav{
 
 .service-card:hover{
   transform:translateY(-6px);
+
   border-color:rgba(255,106,0,.5);
 
   box-shadow:
@@ -369,7 +367,19 @@ nav{
   height:76px;
   border-radius:50%;
   border:2px solid var(--orange);
+
   margin:0 auto 20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  font-size:30px;
+
+  color:var(--orange);
+
+  text-shadow:var(--glow);
+
   box-shadow:var(--glow);
 }
 
@@ -449,13 +459,62 @@ nav{
 /* FOOTER */
 
 footer{
-  text-align:center;
-  padding:32px;
+  background:#050505;
   border-top:1px solid #1f1f1f;
-  color:#777;
+  padding:50px 60px 25px;
 }
 
-footer span{
+.footer-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:50px;
+  flex-wrap:wrap;
+}
+
+.footer-logo img{
+  height:60px;
+  margin-bottom:12px;
+}
+
+.footer-logo p{
+  color:#777;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-size:12px;
+}
+
+.footer-contact h4{
+  color:var(--orange);
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:18px;
+  text-shadow:var(--glow);
+}
+
+.footer-contact div{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.footer-contact a,
+.footer-contact p{
+  color:#cfcfcf;
+  text-decoration:none;
+}
+
+.footer-bottom{
+  margin-top:40px;
+  padding-top:20px;
+  border-top:1px solid #1a1a1a;
+  text-align:center;
+  color:#666;
+  font-size:13px;
+}
+
+.footer-bottom span{
   color:var(--orange);
   text-shadow:var(--glow);
 }
@@ -512,6 +571,10 @@ footer span{
   .about,
   .cta{
     padding:70px 20px;
+  }
+
+  footer{
+    padding:40px 20px 20px;
   }
 
   .services-grid,
@@ -579,49 +642,45 @@ footer span{
 
   </div>
 
-  <div class="dashboard-wrap">
+  <div class="dashboard">
 
-    <div class="dashboard">
+    <div class="dashboard-top">
+      CRM Dashboard — May 2026
+    </div>
 
-      <div class="dashboard-top">
-        CRM Dashboard — May 2026
-      </div>
+    <div class="dashboard-body">
 
-      <div class="dashboard-body">
+      <div class="stats">
 
-        <div class="stats">
-
-          <div class="stat">
-            <small>Leads</small>
-            <h2 class="orange">142</h2>
-          </div>
-
-          <div class="stat">
-            <small>Appointments</small>
-            <h2>35</h2>
-          </div>
-
-          <div class="stat">
-            <small>Conversion</small>
-            <h2>24%</h2>
-          </div>
-
+        <div class="stat">
+          <small>Leads</small>
+          <h2 class="orange">142</h2>
         </div>
 
-        <div class="chart">
+        <div class="stat">
+          <small>Appointments</small>
+          <h2>35</h2>
+        </div>
 
-          <div class="chart-line">
-            <div class="chart-fill one"></div>
-          </div>
+        <div class="stat">
+          <small>Conversion</small>
+          <h2>24%</h2>
+        </div>
 
-          <div class="chart-line">
-            <div class="chart-fill two"></div>
-          </div>
+      </div>
 
-          <div class="chart-line">
-            <div class="chart-fill three"></div>
-          </div>
+      <div class="chart">
 
+        <div class="chart-line">
+          <div class="chart-fill one"></div>
+        </div>
+
+        <div class="chart-line">
+          <div class="chart-fill two"></div>
+        </div>
+
+        <div class="chart-line">
+          <div class="chart-fill three"></div>
         </div>
 
       </div>
@@ -702,38 +761,64 @@ footer span{
 
     <div class="step">
       <div class="step-number">01</div>
-      <div class="step-circle"></div>
+
+      <div class="step-circle">
+        💬
+      </div>
+
       <h3>Consultation</h3>
+
       <p>
         We learn about your business and goals.
       </p>
     </div>
 
     <div class="step">
+
       <div class="step-number">02</div>
-      <div class="step-circle"></div>
+
+      <div class="step-circle">
+        📋
+      </div>
+
       <h3>Strategy</h3>
+
       <p>
         We create a custom growth strategy.
       </p>
+
     </div>
 
     <div class="step">
+
       <div class="step-number">03</div>
-      <div class="step-circle"></div>
+
+      <div class="step-circle">
+        ⚙️
+      </div>
+
       <h3>Build</h3>
+
       <p>
         We implement the systems and automations.
       </p>
+
     </div>
 
     <div class="step">
+
       <div class="step-number">04</div>
-      <div class="step-circle"></div>
+
+      <div class="step-circle">
+        🚀
+      </div>
+
       <h3>Launch</h3>
+
       <p>
         We optimize, test, and scale long term.
       </p>
+
     </div>
 
   </div>
@@ -806,7 +891,57 @@ footer span{
 <!-- FOOTER -->
 
 <footer>
-  © 2026 <span>Legacy IV Digital Solutions</span>. All rights reserved.
+
+  <div class="footer-top">
+
+    <div class="footer-logo">
+
+      <img src="logo.png" alt="Legacy IV Logo">
+
+      <p>
+        Digital Solutions
+      </p>
+
+    </div>
+
+    <div class="footer-contact">
+
+      <h4>
+        Contact Info
+      </h4>
+
+      <div>
+
+        <a href="tel:13252062179">
+          📞 (325) 206-2179
+        </a>
+
+        <a href="mailto:J.holland@legacyivdigital.com">
+          ✉️ J.holland@legacyivdigital.com
+        </a>
+
+        <p>
+          📍 Serving the DFW Metroplex
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    © 2026
+
+    <span>
+      Legacy IV Digital Solutions
+    </span>
+
+    . All rights reserved.
+
+  </div>
+
 </footer>
 
 </body>
