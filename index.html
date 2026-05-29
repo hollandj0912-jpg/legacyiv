@@ -781,6 +781,116 @@ footer{
   }
 
 }
+.portfolio-section {
+    padding: 80px 20px;
+    background: var(--dark-bg, #0a0a0a);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.portfolio-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-image {
+    position: relative;
+    overflow: hidden;
+    height: 220px;
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.view-btn {
+    color: #fff;
+    border: 2px solid #fff;
+    padding: 10px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+.portfolio-info {
+    padding: 24px;
+}
+
+.portfolio-tag {
+    font-size: 12px;
+    color: #f0a500;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.portfolio-info h3 {
+    font-size: 20px;
+    color: #fff;
+    margin: 8px 0 12px;
+}
+
+.portfolio-info p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.portfolio-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.portfolio-results span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.08);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
 
 </style>
 </head>
@@ -1016,6 +1126,58 @@ footer{
     </div>
 
   </div>
+
+</section>
+
+<!-- PORTFOLIO SECTION -->
+<section class="portfolio-section" id="work">
+
+    <div class="section-header">
+        <p class="section-label">Our Work</p>
+        <h2>Recent <span>Client Projects</span></h2>
+    </div>
+
+    <div class="portfolio-grid">
+
+        <div class="portfolio-card">
+            <div class="portfolio-image">
+                <img src="solartexwebsite.png" alt="Atlas Solar-Tex Website">
+                <div class="portfolio-overlay">
+                    <a href="https://solartexsolarscreens.com" target="_blank" class="view-btn">View Live Site →</a>
+                </div>
+            </div>
+            <div class="portfolio-info">
+                <span class="portfolio-tag">Solar Screen Company · Joshua, TX</span>
+                <h3>Atlas Solar-Tex</h3>
+                <p>Full website build, lead capture system, CRM integration, Google Business Profile optimization, and social media setup. Site live within 7 days.</p>
+                <div class="portfolio-results">
+                    <span>✅ Custom Domain</span>
+                    <span>✅ Automated Lead Pipeline</span>
+                    <span>✅ GBP Optimized</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio-card">
+            <div class="portfolio-image">
+                <img src="roofingwebsite.png" alt="Old Pro Roofing Website">
+                <div class="portfolio-overlay">
+                    <a href="https://jhollandoldproroofing.com" target="_blank" class="view-btn">View Live Site →</a>
+                </div>
+            </div>
+            <div class="portfolio-info">
+                <span class="portfolio-tag">Roofing Company · DFW, TX</span>
+                <h3>Old Pro Roofing</h3>
+                <p>High-converting lead generation landing page built for storm damage roofing. Mobile-optimized with direct call-to-action and social proof integration.</p>
+                <div class="portfolio-results">
+                    <span>✅ Lead Gen Focused</span>
+                    <span>✅ Mobile Optimized</span>
+                    <span>✅ Custom Domain</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 </section>
 
