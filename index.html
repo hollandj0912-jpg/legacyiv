@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Russo+One&family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -83,7 +83,7 @@ nav{
 }
 
 .logo-wrap img{
-  height:58px;
+  height:90px;
   display:block;
 }
 
@@ -241,24 +241,44 @@ nav{
 
 .hero h1{
 
-  font-family:'Bebas Neue',sans-serif;
+  font-family:'Russo One', sans-serif;
 
-  font-size:clamp(72px,9vw,124px);
+  font-size:clamp(52px,7.5vw,110px);
 
-  line-height:.92;
+  line-height:.95;
 
-  letter-spacing:1px;
+  letter-spacing:3px;
+
+  text-transform:uppercase;
 
   margin-bottom:28px;
 
 }
 
-.hero h1 span{
+.hero h1 .silver-line {
+  display: block;
+  color: #e8e8e8;
+  -webkit-text-fill-color: #e8e8e8;
+  text-shadow: 0 0 20px rgba(255,255,255,0.15), 0 2px 4px rgba(0,0,0,0.5);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
 
-  color:var(--orange);
+.hero h1 .orange-line {
+  display: block;
+  color: var(--orange);
+  -webkit-text-fill-color: var(--orange);
+  text-shadow: var(--glow);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
 
-  text-shadow:var(--glow);
-
+.hero h1 span {
+  color: var(--orange);
+  -webkit-text-fill-color: var(--orange);
+  text-shadow: var(--glow);
 }
 
 .hero p{
@@ -645,7 +665,7 @@ footer{
 
 .footer-logo img{
 
-  height:60px;
+  height:90px;
 
   margin-bottom:12px;
 
@@ -744,6 +764,10 @@ footer{
 
   nav{
     padding:18px 20px;
+  }
+
+  .logo-wrap img{
+    height:72px;
   }
 
   .nav-links{
@@ -958,12 +982,9 @@ footer{
 
     <h1>
 
-      Built For Today.<br>
-      Designed For Tomorrow.<br>
-
-      <span>
-        Driven By Legacy.
-      </span>
+      <span class="silver-line">Built For Today.</span>
+      <span class="silver-line">Designed For Tomorrow.</span>
+      <span class="orange-line">Driven By Legacy.</span>
 
     </h1>
 
