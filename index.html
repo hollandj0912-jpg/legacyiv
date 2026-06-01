@@ -1,1379 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Legacy IV Digital Solutions</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Russo+One&family=Barlow:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@700;900&display=swap" rel="stylesheet">
-
-<style>
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-:root{
-
-  --orange:#ff6a00;
-  --orangeLight:#ff924d;
-
-  --dark:#070707;
-  --dark2:#101010;
-  --card:#181818;
-
-  --white:#ffffff;
-  --gray:#b8b8b8;
-
-  --glow:
-  0 0 8px rgba(255,106,0,.85),
-  0 0 20px rgba(255,106,0,.45),
-  0 0 40px rgba(255,106,0,.22);
-
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-
-  background:
-  radial-gradient(circle at top right,
-  rgba(255,106,0,.08),
-  transparent 30%),
-
-  #070707;
-
-  color:white;
-
-  font-family:'Barlow',sans-serif;
-
-  overflow-x:hidden;
-
-}
-
-/* NAV */
-
-nav{
-
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  padding:22px 60px;
-
-  position:sticky;
-  top:0;
-  z-index:999;
-
-  background:rgba(0,0,0,.94);
-
-  backdrop-filter:blur(10px);
-
-  border-bottom:1px solid #1d1d1d;
-
-}
-
-.logo-wrap img{
-  height:160px;
-  display:block;
-}
-
-.nav-links{
-
-  display:flex;
-  list-style:none;
-
-  gap:38px;
-
-}
-
-.nav-links a{
-
-  text-decoration:none;
-
-  color:#d0d0d0;
-
-  text-transform:uppercase;
-  letter-spacing:1px;
-
-  font-size:13px;
-  font-weight:700;
-
-  transition:.25s;
-
-}
-
-.nav-links a:hover{
-  color:var(--orange);
-}
-
-.phone{
-
-  color:var(--orange);
-
-  text-decoration:none;
-
-  font-weight:800;
-  font-size:14px;
-
-  text-shadow:var(--glow);
-
-}
-
-/* HERO */
-
-.hero{
-
-  min-height:95vh;
-
-  display:flex;
-  align-items:center;
-
-  padding:120px 60px 100px;
-
-  position:relative;
-
-  overflow:hidden;
-
-}
-
-.hero::before{
-
-  content:'';
-
-  position:absolute;
-  inset:0;
-
-  background:
-  radial-gradient(circle at 80% 25%,
-  rgba(255,106,0,.15),
-  transparent 35%);
-
-  pointer-events:none;
-
-}
-
-.hero-content{
-
-  position:relative;
-  z-index:2;
-
-  max-width:760px;
-
-}
-
-/* OVERLAY STATS */
-
-.hero-overlay-stats{
-
-  position:absolute;
-
-  top:80px;
-  right:60px;
-
-  width:500px;
-  height:300px;
-
-  opacity:.42;
-
-  pointer-events:none;
-
-  z-index:1;
-
-}
-
-.overlay-stat{
-
-  position:absolute;
-
-}
-
-.overlay-stat span{
-
-  display:block;
-
-  font-size:68px;
-  font-weight:900;
-
-  line-height:1;
-
-  color:var(--orange);
-
-  text-shadow:var(--glow);
-
-}
-
-.overlay-stat small{
-
-  color:#9d9d9d;
-
-  text-transform:uppercase;
-
-  letter-spacing:2px;
-
-  font-size:11px;
-
-}
-
-.stat1{
-  top:0;
-  right:0;
-}
-
-.stat2{
-  top:100px;
-  left:50px;
-}
-
-.stat3{
-  bottom:0;
-  right:100px;
-}
-
-.hero h1{
-
-  font-family:'Russo One', sans-serif;
-
-  font-size:clamp(52px,7.5vw,110px);
-
-  line-height:.95;
-
-  letter-spacing:3px;
-
-  text-transform:uppercase;
-
-  margin-bottom:28px;
-
-}
-
-.hero h1 .silver-line {
-  display: block;
-  color: #e8e8e8;
-  -webkit-text-fill-color: #e8e8e8;
-  text-shadow: 0 0 20px rgba(255,255,255,0.15), 0 2px 4px rgba(0,0,0,0.5);
-  background: none;
-  -webkit-background-clip: unset;
-  background-clip: unset;
-}
-
-.hero h1 .orange-line {
-  display: block;
-  color: var(--orange);
-  -webkit-text-fill-color: var(--orange);
-  text-shadow: var(--glow);
-  background: none;
-  -webkit-background-clip: unset;
-  background-clip: unset;
-}
-
-.hero h1 span {
-  color: var(--orange);
-  -webkit-text-fill-color: var(--orange);
-  text-shadow: var(--glow);
-}
-
-.hero p{
-
-  max-width:560px;
-
-  line-height:1.9;
-
-  color:#d0d0d0;
-
-  font-size:17px;
-
-  margin-bottom:40px;
-
-}
-
-.hero-buttons{
-
-  display:flex;
-  gap:18px;
-
-  flex-wrap:wrap;
-
-}
-
-.btn{
-
-  text-decoration:none;
-
-  padding:14px 30px;
-
-  border-radius:6px;
-
-  text-transform:uppercase;
-  letter-spacing:1px;
-
-  font-size:13px;
-  font-weight:800;
-
-  transition:.3s;
-
-}
-
-.btn-primary{
-
-  background:var(--orange);
-
-  color:white;
-
-  box-shadow:var(--glow);
-
-}
-
-.btn-primary:hover{
-
-  background:var(--orangeLight);
-
-  transform:translateY(-2px);
-
-}
-
-.btn-outline{
-
-  border:1px solid var(--orange);
-
-  color:white;
-
-}
-
-.btn-outline:hover{
-
-  background:rgba(255,106,0,.08);
-
-  box-shadow:var(--glow);
-
-}
-
-/* SECTION */
-
-.section{
-  padding:110px 60px;
-}
-
-.section-dark{
-  background:#101010;
-}
-
-.eyebrow{
-
-  text-align:center;
-
-  color:var(--orange);
-
-  text-transform:uppercase;
-  letter-spacing:3px;
-
-  font-size:12px;
-
-  margin-bottom:14px;
-
-  text-shadow:var(--glow);
-
-}
-
-.section-title{
-
-  text-align:center;
-
-  font-family:'Barlow Condensed',sans-serif;
-
-  text-transform:uppercase;
-  letter-spacing:2px;
-
-  font-size:clamp(40px,5vw,62px);
-
-  margin-bottom:70px;
-
-}
-
-/* SERVICES */
-
-.services-grid{
-
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-
-  gap:20px;
-
-}
-
-.service-card{
-
-  background:#181818;
-
-  border:1px solid #242424;
-
-  border-radius:14px;
-
-  padding:42px 28px;
-
-  text-align:center;
-
-  transition:.3s;
-
-}
-
-.service-card:hover{
-
-  transform:translateY(-6px);
-
-  border-color:rgba(255,106,0,.4);
-
-  box-shadow:
-  0 0 28px rgba(255,106,0,.12);
-
-}
-
-.service-icon{
-
-  font-size:42px;
-
-  color:var(--orange);
-
-  margin-bottom:20px;
-
-  text-shadow:var(--glow);
-
-}
-
-.service-card h3{
-
-  font-family:'Barlow Condensed',sans-serif;
-
-  text-transform:uppercase;
-
-  letter-spacing:1px;
-
-  font-size:24px;
-
-  margin-bottom:16px;
-
-}
-
-.service-card p{
-
-  color:#b0b0b0;
-
-  line-height:1.9;
-
-  font-size:14px;
-
-}
-
-/* PROCESS */
-
-.process-grid{
-
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-
-  gap:24px;
-
-}
-
-.step{
-  text-align:center;
-}
-
-.step-number{
-
-  color:var(--orange);
-
-  margin-bottom:14px;
-
-  font-weight:800;
-
-  text-shadow:var(--glow);
-
-}
-
-.step-circle{
-
-  width:78px;
-  height:78px;
-
-  border-radius:50%;
-
-  border:2px solid var(--orange);
-
-  margin:0 auto 22px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  font-size:30px;
-
-  color:var(--orange);
-
-  text-shadow:var(--glow);
-
-  box-shadow:var(--glow);
-
-}
-
-.step h3{
-
-  font-family:'Barlow Condensed',sans-serif;
-
-  text-transform:uppercase;
-
-  letter-spacing:1px;
-
-  margin-bottom:10px;
-
-}
-
-.step p{
-
-  color:#b0b0b0;
-
-  line-height:1.8;
-
-  font-size:14px;
-
-}
-
-/* ABOUT */
-
-.split{
-
-  display:grid;
-  grid-template-columns:1fr 1fr;
-
-}
-
-.about{
-
-  background:#101010;
-
-  padding:100px 60px;
-
-}
-
-.cta{
-
-  background:#151515;
-
-  padding:100px 60px;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-
-}
-
-.split h2{
-
-  font-family:'Barlow Condensed',sans-serif;
-
-  text-transform:uppercase;
-
-  font-size:clamp(38px,5vw,60px);
-
-  line-height:1.05;
-
-  margin-bottom:24px;
-
-}
-
-.divider{
-
-  width:60px;
-  height:4px;
-
-  background:var(--orange);
-
-  box-shadow:var(--glow);
-
-  margin-bottom:26px;
-
-}
-
-.split p{
-
-  color:#b6b6b6;
-
-  line-height:1.9;
-
-  margin-bottom:18px;
-
-  max-width:520px;
-
-}
-
-.kids{
-
-  color:var(--orange);
-
-  text-shadow:var(--glow);
-
-  font-weight:700;
-
-}
-
-.about img{
-
-  width:100%;
-
-  border-radius:16px;
-
-  margin-top:24px;
-
-  border:1px solid rgba(255,106,0,.3);
-
-  box-shadow:
-  0 0 35px rgba(255,106,0,.12);
-
-}
-
-/* FOOTER */
-
-footer{
-
-  background:#050505;
-
-  border-top:1px solid #1a1a1a;
-
-  padding:50px 60px 25px;
-
-}
-
-.footer-top{
-
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-
-  gap:50px;
-
-  flex-wrap:wrap;
-
-}
-
-.footer-logo img{
-
-  height:90px;
-
-  margin-bottom:12px;
-
-}
-
-.footer-logo p{
-
-  color:#777;
-
-  letter-spacing:2px;
-
-  text-transform:uppercase;
-
-  font-size:12px;
-
-}
-
-.footer-contact h4{
-
-  color:var(--orange);
-
-  text-transform:uppercase;
-  letter-spacing:2px;
-
-  margin-bottom:18px;
-
-  text-shadow:var(--glow);
-
-}
-
-.footer-contact div{
-
-  display:flex;
-  flex-direction:column;
-
-  gap:12px;
-
-}
-
-.footer-contact a,
-.footer-contact p{
-
-  color:#d0d0d0;
-
-  text-decoration:none;
-
-}
-
-.footer-bottom{
-
-  margin-top:40px;
-
-  padding-top:20px;
-
-  border-top:1px solid #181818;
-
-  text-align:center;
-
-  color:#666;
-
-  font-size:13px;
-
-}
-
-.footer-bottom span{
-
-  color:var(--orange);
-
-  text-shadow:var(--glow);
-
-}
-
-/* MOBILE */
-
-@media(max-width:1000px){
-
-  .services-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .process-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .split{
-    grid-template-columns:1fr;
-  }
-
-  .hero-overlay-stats{
-    opacity:.22;
-  }
-
-}
-
-@media(max-width:700px){
-
-  nav{
-    padding:18px 20px;
-  }
-
-  .logo-wrap img{
-    height:120px;
-  }
-
-  .nav-links{
-    display:none;
-  }
-
-  .hero{
-    padding:100px 20px 80px;
-  }
-
-  .hero-overlay-stats{
-    display:none;
-  }
-
-  .section{
-    padding:90px 20px;
-  }
-
-  .about,
-  .cta{
-    padding:80px 20px;
-  }
-
-  footer{
-    padding:40px 20px 20px;
-  }
-
-  .services-grid,
-  .process-grid{
-    grid-template-columns:1fr;
-  }
-
-  .hero-buttons{
-    flex-direction:column;
-  }
-
-}
-
-.portfolio-section {
-    padding: 80px 40px;
-    background: var(--dark-bg, #0a0a0a);
-}
-
-.portfolio-section .section-label,
-.portfolio-section h2 {
-    padding-left: 20px;
-}
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.portfolio-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.portfolio-card:hover {
-    transform: translateY(-5px);
-}
-
-.portfolio-image {
-    position: relative;
-    overflow: hidden;
-    height: 220px;
-}
-
-.portfolio-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: top;
-}
-
-.portfolio-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.portfolio-card:hover .portfolio-overlay {
-    opacity: 1;
-}
-
-.view-btn {
-    color: #fff;
-    border: 2px solid #fff;
-    padding: 10px 24px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.view-btn:hover {
-    background: #fff;
-    color: #000;
-}
-
-.portfolio-info {
-    padding: 24px;
-}
-
-.portfolio-tag {
-    font-size: 12px;
-    color: #f0a500;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.portfolio-info h3 {
-    font-size: 20px;
-    color: #fff;
-    margin: 8px 0 12px;
-}
-
-.portfolio-info p {
-    font-size: 14px;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.7;
-    margin-bottom: 16px;
-}
-
-.portfolio-results {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.portfolio-results span {
-    font-size: 12px;
-    color: rgba(255,255,255,0.6);
-    background: rgba(255,255,255,0.08);
-    padding: 4px 10px;
-    border-radius: 20px;
-}
-
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legacy IV Digital Solutions – Business Growth Infrastructure</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- NAV -->
-
+<!-- ══════ NAV ══════ -->
 <nav>
-
-  <div class="logo-wrap">
-    <img src="logo.png" alt="Legacy IV Logo">
-  </div>
-
-  <ul class="nav-links">
-
-    <li><a href="#services">Services</a></li>
-
-    <li><a href="#process">Process</a></li>
-
-    <li><a href="#about">About</a></li>
-
-    <li><a href="#contact">Contact</a></li>
-
-  </ul>
-
-  <a href="tel:13252062179" class="phone">
+  <a href="tel:3252062179" class="n-phone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.52 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.83-.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
     (325) 206-2179
   </a>
-
+  <div class="n-div"></div>
+  <ul class="n-links">
+    <li><a href="#svc">Services</a></li>
+    <li><a href="#os">Process</a></li>
+    <li><a href="#slv">Results</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#ft">Contact</a></li>
+  </ul>
+  <a href="tel:3252062179" class="n-cta">Book Consultation →</a>
 </nav>
 
-<!-- HERO -->
-
-<section class="hero">
-
-  <!-- OVERLAY STATS -->
-
- <div class="hero-overlay-stats">
-
-    <div class="overlay-stat stat1">
-        <span>3</span>
-        <small>Active Clients</small>
-    </div>
-
-    <div class="overlay-stat stat2">
-        <span>4</span>
-        <small>Sites Built</small>
-    </div>
-
-    <div class="overlay-stat stat3">
-        <span>DFW</span>
-        <small>Local Focus</small>
-    </div>
-
-</div>
- 
-<div class="hero-content">
-
-    <h1>
-
-      <span class="silver-line">Built For Today.</span>
-      <span class="silver-line">Designed For Tomorrow.</span>
-      <span class="orange-line">Driven By Legacy.</span>
-
-    </h1>
-
-    <p>
-
-      We help businesses streamline operations,
-      automate follow-up, generate leads,
-      and create scalable systems built for growth.
-
-    </p>
-
-    <div class="hero-buttons">
-
-      <a href="#services" class="btn btn-outline">
-        See If We're A Fit
+<!-- ══════ HERO ══════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-dots"></div>
+  <div class="hc">
+    <img src="IV_logo.png" alt="Legacy IV Digital Solutions" class="h-logo-img">
+    <div class="h-bgi">Business Growth Infrastructure</div>
+    <h1 class="h-h1">Built for Today.<br>Designed for Tomorrow.<br>Driven by <em>Legacy.</em></h1>
+    <p class="h-p">We build the systems behind sustainable business growth through CRM infrastructure, automation, websites, and digital optimization.</p>
+    <div class="h-btns">
+      <a href="tel:3252062179" class="btn-f">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.52 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.83-.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Build My Growth System →
       </a>
-
-      <a href="tel:13252062179" class="btn btn-primary">
-        Book Consultation
-      </a>
-
+      <a href="#os" class="btn-o">See Our Process →</a>
     </div>
-
   </div>
-
 </section>
 
-<!-- SERVICES -->
+<div class="glow-line"></div>
 
-<section class="section section-dark" id="services">
+<!-- ══════ WHAT WE BUILD ══════ -->
+<section id="svc">
+  <div class="container">
+    <div class="s-eye rv">What We Build</div>
+    <div class="s-ttl rv">Growth Infrastructure</div>
+    <div class="svc-grid">
 
-  <div class="eyebrow">
-    What We Do
-  </div>
-
-  <h2 class="section-title">
-    Systems That Power Your Business
-  </h2>
-
-  <div class="services-grid">
-
-    <div class="service-card">
-
-      <div class="service-icon">⚡</div>
-
-      <h3>Lead Generation</h3>
-
-      <p>
-        Strategic campaigns that attract quality leads
-        and consistently fill your pipeline.
-      </p>
-
-    </div>
-
-    <div class="service-card">
-
-      <div class="service-icon">⚙️</div>
-
-      <h3>Automation Systems</h3>
-
-      <p>
-        Automated workflows that save time,
-        reduce manual work, and improve follow-up.
-      </p>
-
-    </div>
-
-    <div class="service-card">
-
-      <div class="service-icon">📈</div>
-
-      <h3>CRM Management</h3>
-
-      <p>
-        Organized pipelines and follow-up systems
-        built to convert more business.
-      </p>
-
-    </div>
-
-    <div class="service-card">
-
-      <div class="service-icon">⭐</div>
-
-      <h3>Reputation Management</h3>
-
-      <p>
-        Build trust, strengthen your brand,
-        and dominate your local market.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- PROCESS -->
-
-<section class="section" id="process">
-
-  <div class="eyebrow">
-    Our Process
-  </div>
-
-  <h2 class="section-title">
-    Simple. Strategic. Effective.
-  </h2>
-
-  <div class="process-grid">
-
-    <div class="step">
-
-      <div class="step-number">01</div>
-
-      <div class="step-circle">💬</div>
-
-      <h3>Consultation</h3>
-
-      <p>
-        We learn about your business and goals.
-      </p>
-
-    </div>
-
-    <div class="step">
-
-      <div class="step-number">02</div>
-
-      <div class="step-circle">📋</div>
-
-      <h3>Strategy</h3>
-
-      <p>
-        We create a custom growth strategy.
-      </p>
-
-    </div>
-
-    <div class="step">
-
-      <div class="step-number">03</div>
-
-      <div class="step-circle">⚙️</div>
-
-      <h3>Build</h3>
-
-      <p>
-        We implement the systems and automations.
-      </p>
-
-    </div>
-
-    <div class="step">
-
-      <div class="step-number">04</div>
-
-      <div class="step-circle">🚀</div>
-
-      <h3>Launch</h3>
-
-      <p>
-        We optimize, test, and scale long term.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- PORTFOLIO SECTION -->
-<section class="portfolio-section" id="work">
-
-  <div class="eyebrow">
-    Our Work
-  </div>
-
-  <h2 class="section-title">Recent Client Projects</h2>
-
-    <div class="portfolio-grid">
-
-        <div class="portfolio-card">
-            <div class="portfolio-image">
-                <img src="solartexwebsite.png" alt="Atlas Solar-Tex Website">
-                <div class="portfolio-overlay">
-                    <a href="https://solartexsolarscreens.com" target="_blank" class="view-btn">View Live Site →</a>
-                </div>
-            </div>
-            <div class="portfolio-info">
-                <span class="portfolio-tag">Solar Screen Company · Joshua, TX</span>
-                <h3>Atlas Solar-Tex</h3>
-                <p>Full website build, lead capture system, CRM integration, Google Business Profile optimization, and social media setup. Site live within 7 days.</p>
-                <div class="portfolio-results">
-                    <span>✅ Custom Domain</span>
-                    <span>✅ Automated Lead Pipeline</span>
-                    <span>✅ GBP Optimized</span>
-                </div>
-            </div>
+      <div class="svc-c rv">
+        <div class="svc-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><ellipse cx="12" cy="5.5" rx="8" ry="3"/><path d="M4 5.5v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"/><path d="M4 10.5v5c0 1.66 3.58 3 8 3s8-1.34 8-3v-5"/></svg>
         </div>
+        <h3>CRM Systems</h3>
+        <p>The operational backbone of your business. Organize, track, and grow.</p>
+        <div class="svc-bar"></div>
+      </div>
 
-        <div class="portfolio-card">
-            <div class="portfolio-image">
-                <img src="roofingwebsite.png" alt="J Holland Roofing Website">
-                <div class="portfolio-overlay">
-                    <a href="https://jhollandoldproroofing.com" target="_blank" class="view-btn">View Live Site →</a>
-                </div>
-            </div>
-            <div class="portfolio-info">
-                <span class="portfolio-tag">Roofing Page · DFW, TX</span>
-                <h3>Roofing Specialist</h3>
-                <p>High-converting lead generation landing page built for storm damage roofing. Mobile-optimized with direct call-to-action and social proof integration.</p>
-                <div class="portfolio-results">
-                    <span>✅ Lead Gen Focused</span>
-                    <span>✅ Mobile Optimized</span>
-                    <span>✅ Custom Domain</span>
-                </div>
-            </div>
+      <div class="svc-c rv">
+        <div class="svc-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
         </div>
+        <h3>Automation</h3>
+        <p>Follow-up, nurturing, scheduling, and lead conversion on autopilot.</p>
+        <div class="svc-bar"></div>
+      </div>
 
-        <div class="portfolio-card">
-            <div class="portfolio-image">
-                <img src="2911.png" alt="29:11 Land Solutions Website">
-                <div class="portfolio-overlay">
-                    <a href="https://2911landsolutions.com" target="_blank" class="view-btn">View Live Site →</a>
-                </div>
-            </div>
-            <div class="portfolio-info">
-                <span class="portfolio-tag">Land Clearing & Site Prep · Godley, TX</span>
-                <h3>29:11 Land Solutions</h3>
-                <p>Full 8-page website build with city SEO pages, reviews page, working contact form, CRM integration, social media launch, and automated lead follow-up. Built and live in one day.</p>
-                <div class="portfolio-results">
-                    <span>✅ 8-Page SEO Site</span>
-                    <span>✅ Automated Lead Pipeline</span>
-                    <span>✅ Social Media Launch</span>
-                </div>
-            </div>
+      <div class="svc-c rv">
+        <div class="svc-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
         </div>
+        <h3>Websites</h3>
+        <p>Built to convert visitors into customers and drive revenue.</p>
+        <div class="svc-bar"></div>
+      </div>
+
+      <div class="svc-c rv">
+        <div class="svc-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h3>Visibility</h3>
+        <p>GBP optimization, reputation management, and local search dominance.</p>
+        <div class="svc-bar"></div>
+      </div>
 
     </div>
-
+  </div>
 </section>
 
-<!-- ABOUT -->
+<div class="glow-line"></div>
 
-<section class="split" id="about">
-
-  <div class="about">
-
-    <div class="eyebrow" style="text-align:left;">
-      About Legacy IV
+<!-- ══════ THE OPERATING SYSTEM ══════ -->
+<section id="os">
+  <div class="container">
+    <div class="s-eye rv" style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:40px;">
+      <span style="flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,transparent,rgba(249,115,22,.45));box-shadow:0 0 6px rgba(249,115,22,.2);"></span>
+      The Operating System
+      <span style="flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,rgba(249,115,22,.45),transparent);box-shadow:0 0 6px rgba(249,115,22,.2);"></span>
     </div>
+    <div class="os-grid rv">
 
-    <h2>
-      Built On Purpose.<br>
-      Focused On Impact.
-    </h2>
+      <!-- LEFT STACK -->
+      <div class="os-stack">
+        <div class="os-nd">
+          <div class="os-nd-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h4>CRM Systems</h4>
+            <p>Capture and manage every lead.</p>
+          </div>
+        </div>
+        <div class="os-nd">
+          <div class="os-nd-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div>
+            <h4>Websites</h4>
+            <p>Turn visitors into qualified leads.</p>
+          </div>
+        </div>
+      </div>
 
-    <div class="divider"></div>
+      <!-- CENTER: ↑ arrow, hub, ↓ arrow -->
+      <div class="os-mid">
+        <div class="os-arr-v">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="20" x2="12" y2="4"/><polyline points="5 11 12 4 19 11"/></svg>
+        </div>
+        <div class="os-hub-row">
+          <div class="os-h-line"></div>
+          <div class="os-hub">
+            <div class="os-hub-ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+            </div>
+            <h3>Automation</h3>
+            <p>Nurture, follow up,<br>and move leads forward.</p>
+          </div>
+          <div class="os-h-line r"></div>
+        </div>
+        <div class="os-arr-v">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="4" x2="12" y2="20"/><polyline points="19 13 12 20 5 13"/></svg>
+        </div>
+      </div>
 
-    <p>
-      Legacy IV was founded to build more than businesses —
-      it was built to create a lasting legacy.
-    </p>
-
-    <p>
-      The IV represents my why:
-      <span class="kids">my four kids.</span>
-      Everything we build is intentional,
-      scalable, and designed to create long-term value.
-    </p>
-
-    <img src="kids.jpg" alt="Legacy IV Family">
-
-  </div>
-
-  <div class="cta" id="contact">
-
-    <div class="eyebrow" style="text-align:left;">
-      Ready To Get Started?
-    </div>
-
-    <h2>
-      Let's Build Something<br>
-      That Works.
-    </h2>
-
-    <div class="divider"></div>
-
-    <p>
-      Book a consultation and let's build
-      a plan tailored to your business.
-    </p>
-
-    <div style="margin-top:20px;">
-
-      <a href="tel:13252062179" class="btn btn-primary">
-        Book A Consultation
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- FOOTER -->
-
-<footer>
-
-  <div class="footer-top">
-
-    <div class="footer-logo">
-
-      <img src="logo.png" alt="Legacy IV Logo">
-
-      <p>
-        Digital Solutions
-      </p>
-
-    </div>
-
-    <div class="footer-contact">
-
-      <h4>
-        Contact Info
-      </h4>
-
-      <div>
-
-        <a href="tel:13252062179">
-          📞 (325) 206-2179
-        </a>
-
-        <a href="mailto:J.holland@legacyivdigital.com">
-          ✉️ J.holland@legacyivdigital.com
-        </a>
-
-        <p>
-          📍 Serving the DFW Metroplex
-        </p>
-
+      <!-- RIGHT STACK -->
+      <div class="os-stack">
+        <div class="os-nd">
+          <div class="os-nd-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="2"/><path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/></svg>
+          </div>
+          <div>
+            <h4>Visibility</h4>
+            <p>Be found, build trust, and stand out online.</p>
+          </div>
+        </div>
+        <div class="os-nd">
+          <div class="os-nd-ic">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          </div>
+          <div>
+            <h4>Growth</h4>
+            <p>More leads. Better follow-up. Higher conversion. Sustainable growth.</p>
+          </div>
+        </div>
       </div>
 
     </div>
 
+    <div class="os-desc rv">
+      Every service we provide is designed to connect into a single, unified system.
+      One infrastructure. All the pieces working together. Built to scale.
+    </div>
   </div>
+</section>
 
-  <div class="footer-bottom">
+<div class="glow-line"></div>
 
-    <div style="
-    margin-bottom:12px;
-    display:flex;
-    justify-content:center;
-    gap:24px;
-    flex-wrap:wrap;
-    ">
+<!-- ══════ WHAT THIS SOLVES ══════ -->
+<section id="slv">
+  <div class="container">
+    <div class="s-eye rv">— What This Solves —</div>
+    <div class="slv-grid">
 
-      <a href="privacy.html"
-      style="
-      color:#888;
-      text-decoration:none;
-      font-size:13px;
-      ">
-        Privacy Policy
-      </a>
+      <div class="slv-c rv">
+        <div class="slv-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        </div>
+        <h4>Missed Leads</h4>
+        <p>Never lose another opportunity.</p>
+      </div>
 
-      <a href="terms.html"
-      style="
-      color:#888;
-      text-decoration:none;
-      font-size:13px;
-      ">
-        Terms & Conditions
-      </a>
+      <div class="slv-c rv">
+        <div class="slv-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>Manual Follow-Up</h4>
+        <p>Automate tasks and follow-up so nothing slips through.</p>
+      </div>
+
+      <div class="slv-c rv">
+        <div class="slv-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2"/><path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/></svg>
+        </div>
+        <h4>Poor Visibility</h4>
+        <p>Get found, build trust, and stand out online.</p>
+      </div>
+
+      <div class="slv-c rv">
+        <div class="slv-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </div>
+        <h4>Disconnected Systems</h4>
+        <p>Everything connected. Everything working together.</p>
+      </div>
+
+      <div class="slv-c rv">
+        <div class="slv-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h4>Stalled Growth</h4>
+        <p>Build a system that drives consistent, predictable growth.</p>
+      </div>
 
     </div>
-
-    © 2026
-
-    <span>
-      Legacy IV Digital Solutions
-    </span>
-
-    . All rights reserved.
-
   </div>
+</section>
 
+<!-- ══════ CTA BANNER ══════ -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-in">
+    <div>
+      <h2>Build a Business<br><span>That Lasts.</span></h2>
+    </div>
+    <div class="cta-r">
+      <div class="cta-badge">
+        <div class="cta-sh">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <p>Infrastructure designed<br>for sustainable growth.</p>
+      </div>
+      <a href="tel:3252062179" class="btn-f">Book Your Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer id="ft">
+  <div class="container">
+    <div class="ft-grid">
+      <div>
+        <div class="ft-wm">LEGACY<span> IV</span></div>
+        <div class="ft-ds"><div class="ft-ds-l"></div><span class="ft-ds-t">Digital Solutions</span><div class="ft-ds-l"></div></div>
+        <div class="ft-tag">Business Growth Infrastructure</div>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#">CRM Systems</a></li>
+          <li><a href="#">Automation</a></li>
+          <li><a href="#">Websites</a></li>
+          <li><a href="#">Visibility</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Let's Connect</h5>
+        <div class="ft-ci">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.52 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.83-.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:3252062179">(325) 206-2179</a>
+        </div>
+        <div class="ft-ci">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:j.holland@legacyivdigital.com">j.holland@legacyivdigital.com</a>
+        </div>
+        <div class="ft-ci">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>DFW Metro, Texas</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p>&copy; 2025 Legacy IV Digital Solutions. All rights reserved.</p>
+      <div class="ft-bl">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
+<script>
+  const o = new IntersectionObserver(e => {
+    e.forEach(el => {
+      if (el.isIntersecting) { el.target.classList.add('v'); o.unobserve(el.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rv').forEach(el => o.observe(el));
+</script>
 </body>
 </html>
