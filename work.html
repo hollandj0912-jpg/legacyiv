@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work – Legacy IV Digital Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ═══ WORK PAGE STYLES ═══ */
+    .work-hero{
+      position:relative;padding:140px 28px 80px;text-align:center;
+      background:linear-gradient(180deg,rgba(249,115,22,.08) 0%,#000 60%);
+      border-bottom:1px solid rgba(249,115,22,.1);
+    }
+    .work-hero::before{
+      content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+      width:500px;height:300px;
+      background:radial-gradient(ellipse at 50% 0%,rgba(249,115,22,.15) 0%,transparent 70%);
+      pointer-events:none;
+    }
+    .work-hero h1{
+      font-family:'Oswald',sans-serif;font-size:clamp(32px,5vw,56px);
+      font-weight:700;letter-spacing:4px;text-transform:uppercase;
+      color:#fff;margin-bottom:20px;
+      text-shadow:0 0 30px rgba(249,115,22,.15);
+    }
+    .work-hero h1 span{color:var(--or);text-shadow:0 0 24px rgba(249,115,22,.4);}
+    .work-hero p{
+      font-size:16px;color:var(--muted);line-height:1.7;
+      max-width:580px;margin:0 auto;
+    }
+
+    /* Project cards */
+    .projects{padding:80px 0;background:var(--bg);}
+    .proj{
+      display:grid;grid-template-columns:1fr 1fr;gap:48px;
+      align-items:center;margin-bottom:80px;
+      position:relative;
+    }
+    .proj:last-child{margin-bottom:0;}
+    .proj.flip .proj-img{order:2;}
+    .proj.flip .proj-info{order:1;}
+
+    .proj-img{position:relative;border-radius:8px;overflow:hidden;}
+    .proj-img img{
+      width:100%;height:auto;display:block;border-radius:8px;
+      border:1px solid var(--bdr2);
+      transition:transform .4s ease;
+    }
+    .proj-img:hover img{transform:scale(1.02);}
+    .proj-img::before{
+      content:'';position:absolute;inset:0;z-index:1;
+      border-radius:8px;
+      box-shadow:inset 0 0 0 1px rgba(249,115,22,.15);
+      pointer-events:none;
+    }
+    .proj-img::after{
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;z-index:2;
+      background:linear-gradient(90deg,transparent,var(--or),transparent);
+      opacity:.5;border-radius:8px 8px 0 0;
+    }
+    /* Glow behind image */
+    .proj-glow{
+      position:absolute;inset:-20px;z-index:-1;
+      background:radial-gradient(ellipse at 50% 50%,rgba(249,115,22,.08) 0%,transparent 70%);
+      border-radius:20px;
+    }
+
+    .proj-label{
+      font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;
+      letter-spacing:4px;text-transform:uppercase;color:var(--or);
+      margin-bottom:14px;text-shadow:0 0 10px rgba(249,115,22,.3);
+      display:flex;align-items:center;gap:10px;
+    }
+    .proj-label::after{
+      content:'';flex:1;height:1px;max-width:50px;
+      background:linear-gradient(90deg,rgba(249,115,22,.5),transparent);
+      box-shadow:0 0 4px rgba(249,115,22,.2);
+    }
+    .proj-info h2{
+      font-family:'Oswald',sans-serif;font-size:clamp(24px,3vw,36px);
+      font-weight:600;letter-spacing:2px;text-transform:uppercase;
+      color:#fff;margin-bottom:8px;line-height:1.15;
+    }
+    .proj-info h2 em{color:var(--or);font-style:normal;text-shadow:0 0 14px rgba(249,115,22,.3);}
+    .proj-industry{
+      font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;
+      letter-spacing:1.5px;text-transform:uppercase;
+      color:var(--dim);margin-bottom:20px;
+    }
+    .proj-info p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:20px;}
+
+    /* What was built tags */
+    .proj-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+    .proj-tag{
+      padding:6px 14px;border:1px solid var(--bdr);border-radius:4px;
+      font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;
+      letter-spacing:1.5px;text-transform:uppercase;color:var(--or);
+      background:rgba(249,115,22,.04);
+      box-shadow:0 0 8px rgba(249,115,22,.06);
+    }
+
+    /* Divider between projects */
+    .proj-divider{
+      height:1px;max-width:300px;margin:0 auto 80px;
+      background:linear-gradient(90deg,transparent,rgba(249,115,22,.3),transparent);
+      box-shadow:0 0 10px rgba(249,115,22,.15);
+    }
+
+    /* Bottom CTA area */
+    .work-cta{
+      text-align:center;padding:60px 0 0;
+      border-top:1px solid rgba(249,115,22,.08);
+    }
+    .work-cta h3{
+      font-family:'Oswald',sans-serif;font-size:clamp(20px,3vw,30px);
+      font-weight:600;letter-spacing:3px;text-transform:uppercase;
+      color:#fff;margin-bottom:12px;
+    }
+    .work-cta h3 span{color:var(--or);text-shadow:0 0 16px rgba(249,115,22,.3);}
+    .work-cta p{font-size:14px;color:var(--muted);margin-bottom:28px;}
+
+    @media(max-width:960px){
+      .proj{grid-template-columns:1fr;gap:28px;}
+      .proj.flip .proj-img{order:0;}
+      .proj.flip .proj-info{order:0;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════ NAV ══════ -->
+<nav>
+  <a href="tel:3252062179" class="n-phone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.52 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.83-.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    (325) 206-2179
+  </a>
+  <div class="n-div"></div>
+  <ul class="n-links">
+    <li><a href="index.html#svc">Services</a></li>
+    <li><a href="index.html#os">Process</a></li>
+    <li><a href="work.html">Our Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#ft">Contact</a></li>
+  </ul>
+  <a href="https://cal.com/legacy-iv" target="_blank" class="n-cta">Book Consultation →</a>
+  <button class="n-burger" onclick="document.querySelector('.n-mobile').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="n-mobile">
+  <a href="index.html#svc" onclick="this.parentElement.classList.remove('open')">Services</a>
+  <a href="index.html#os" onclick="this.parentElement.classList.remove('open')">Process</a>
+  <a href="work.html">Our Work</a>
+  <a href="about.html">About</a>
+  <a href="#ft" onclick="this.parentElement.classList.remove('open')">Contact</a>
+  <a href="https://cal.com/legacy-iv" target="_blank" class="n-mob-cta">Book a Consultation</a>
+  <a href="tel:3252062179" style="text-align:center;color:var(--or);font-size:13px;padding-top:4px;border-bottom:none;">Or call — (325) 206-2179</a>
+</div>
+
+<!-- ══════ HERO ══════ -->
+<div class="work-hero">
+  <div class="s-eye">Our Work</div>
+  <h1>Infrastructure <span>We've Built.</span></h1>
+  <p>Real systems for real businesses. Every project is built from scratch — no templates, no shortcuts, no cookie-cutter solutions.</p>
+</div>
+
+<div class="glow-line"></div>
+
+<!-- ══════ PROJECTS ══════ -->
+<section class="projects">
+  <div class="container">
+
+    <!-- PROJECT 1: Atlas Solar-Tex -->
+    <div class="proj rv">
+      <div class="proj-img">
+        <div class="proj-glow"></div>
+        <a href="https://solartexsolarscreens.com" target="_blank"><img src="solartexwebsite.png" alt="Atlas Solar-Tex Website"></a>
+      </div>
+      <div class="proj-info">
+        <div class="proj-label">Client Project</div>
+        <h2>Atlas <em>Solar-Tex</em></h2>
+        <div class="proj-industry">Solar Screen Installation</div>
+        <p>Atlas Solar-Tex needed a complete digital infrastructure built from the ground up. We designed their brand identity, built a custom website for lead generation, established their social media presence, optimized their Google Business Profile for local search, and implemented a full CRM with automated follow-up and lead management.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Custom Website</span>
+          <span class="proj-tag">Logo Design</span>
+          <span class="proj-tag">Facebook & Instagram</span>
+          <span class="proj-tag">GBP Optimization</span>
+          <span class="proj-tag">CRM & Automation</span>
+          <span class="proj-tag">Lead Management</span>
+          <span class="proj-tag">Social Media Management</span>
+        </div>
+        <a href="https://solartexsolarscreens.com" target="_blank" style="font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--or);display:inline-flex;align-items:center;gap:6px;transition:all .2s;text-shadow:0 0 8px rgba(249,115,22,.2);">View Live Site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+    </div>
+
+    <div class="proj-divider"></div>
+
+    <!-- PROJECT 2: 29:11 Land Solutions -->
+    <div class="proj flip rv">
+      <div class="proj-img">
+        <div class="proj-glow"></div>
+        <a href="https://2911landsolutions.com" target="_blank"><img src="2911.png" alt="29:11 Land Solutions Website"></a>
+      </div>
+      <div class="proj-info">
+        <div class="proj-label">Client Project</div>
+        <h2>29:11 <em>Land Solutions</em></h2>
+        <div class="proj-industry">Gravel Driveways · Land Prep · Leveling · Clearing · Pad Prep</div>
+        <p>29:11 Land Solutions had a growing business and zero online presence. We built their entire digital foundation — logo, custom website, Facebook and Instagram pages, and a full CRM with automation and lead management. Google Business Profile build and optimization is currently in progress.</p>
+        <div class="proj-tags">
+          <span class="proj-tag">Custom Website</span>
+          <span class="proj-tag">Logo Design</span>
+          <span class="proj-tag">Facebook & Instagram</span>
+          <span class="proj-tag">CRM & Automation</span>
+          <span class="proj-tag">Lead Management</span>
+          <span class="proj-tag">Social Media Management</span>
+          <span class="proj-tag">GBP Setup (In Progress)</span>
+        </div>
+        <a href="https://2911landsolutions.com" target="_blank" style="font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--or);display:inline-flex;align-items:center;gap:6px;transition:all .2s;text-shadow:0 0 8px rgba(249,115,22,.2);">View Live Site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="work-cta rv">
+      <h3>Your Business <span>Could Be Next.</span></h3>
+      <p>If you're a home service business ready to build real infrastructure, let's talk.</p>
+      <a href="https://cal.com/legacy-iv" target="_blank" class="btn-f">Book Your Consultation →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════ CTA BANNER ══════ -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-in">
+    <div><h2>Build a Business<br><span>That Lasts.</span></h2></div>
+    <div class="cta-r">
+      <div class="cta-badge">
+        <div class="cta-sh">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <p>Infrastructure designed<br>for sustainable growth.</p>
+      </div>
+      <a href="https://cal.com/legacy-iv" target="_blank" class="btn-f">Book Your Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer id="ft">
+  <div class="container">
+    <div class="ft-grid">
+      <div><img src="IV_logo.png" alt="Legacy IV Digital Solutions" class="ft-logo-img"></div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="work.html">Our Work</a></li>
+          <li><a href="#ft">Contact</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#svc">CRM Systems</a></li>
+          <li><a href="index.html#svc">Automation</a></li>
+          <li><a href="index.html#svc">Websites</a></li>
+          <li><a href="index.html#svc">Visibility</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Let's Connect</h5>
+        <div class="ft-ci">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.52 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.83-.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:3252062179">(325) 206-2179</a>
+        </div>
+        <div class="ft-ci">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:j.holland@legacyivdigital.com">j.holland@legacyivdigital.com</a>
+        </div>
+        <div class="ft-ci">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>DFW, TX</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p>&copy; 2025 Legacy IV Digital Solutions. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const o = new IntersectionObserver(e => {
+    e.forEach(el => { if (el.isIntersecting) { el.target.classList.add('v'); o.unobserve(el.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.rv').forEach(el => o.observe(el));
+</script>
+</body>
+</html>
