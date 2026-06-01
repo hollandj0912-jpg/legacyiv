@@ -18,9 +18,12 @@ body{background:#000;color:#d1d5db;font-family:'Open Sans',sans-serif;overflow-x
 a{text-decoration:none;color:inherit;}
 .container{max-width:1100px;margin:0 auto;padding:0 28px;}
 
+/* ═══════════ GLOBAL OVERFLOW FIX ═══════════ */
+html{scroll-behavior:smooth;overflow-x:hidden;}
+
 /* ═══════════ NAV ═══════════ */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;height:56px;display:flex;align-items:center;padding:0 28px;gap:16px;background:rgba(0,0,0,0.94);border-bottom:1px solid rgba(249,115,22,0.08);backdrop-filter:blur(10px);box-shadow:0 1px 20px rgba(249,115,22,0.06);}
-.n-phone{display:flex;align-items:center;gap:7px;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;color:var(--or);transition:all .25s;white-space:nowrap;}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:56px;display:flex;align-items:center;padding:0 20px;gap:12px;background:rgba(0,0,0,0.94);border-bottom:1px solid rgba(249,115,22,0.08);backdrop-filter:blur(10px);box-shadow:0 1px 20px rgba(249,115,22,0.06);}
+.n-phone{display:flex;align-items:center;gap:7px;font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;letter-spacing:1px;color:var(--or);transition:all .25s;white-space:nowrap;flex-shrink:0;}
 .n-phone svg{width:14px;height:14px;filter:drop-shadow(0 0 4px var(--glow));}
 .n-phone:hover{color:#fff;text-shadow:0 0 12px var(--glow);}
 .n-div{width:1px;height:28px;background:rgba(249,115,22,0.12);margin:0 6px;box-shadow:0 0 6px rgba(249,115,22,0.08);}
@@ -30,8 +33,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:56px;display:flex;ali
 .n-cta{border:1.5px solid var(--or);color:#fff;padding:8px 20px;border-radius:3px;font-family:'Rajdhani',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;white-space:nowrap;transition:all .25s;box-shadow:0 0 14px rgba(249,115,22,0.15);}
 .n-cta:hover{background:rgba(249,115,22,0.12);box-shadow:0 0 24px var(--glow);text-shadow:0 0 8px var(--glow);}
 
+/* Mobile tagline — hidden on desktop */
+.n-tagline{
+  display:none;flex:1;text-align:center;
+  font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--or);text-shadow:0 0 8px rgba(249,115,22,.25);
+}
+
 /* Hamburger button — hidden on desktop */
-.n-burger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;}
+.n-burger{display:none;background:none;border:none;cursor:pointer;padding:6px;flex-direction:column;gap:5px;flex-shrink:0;margin-left:auto;}
 .n-burger span{display:block;width:22px;height:2px;background:var(--or);border-radius:2px;transition:all .25s;box-shadow:0 0 4px rgba(249,115,22,.3);}
 
 /* Mobile dropdown panel */
@@ -210,8 +221,11 @@ footer ul li a:hover{color:#fff;text-shadow:0 0 8px rgba(255,255,255,.12);}
   .ft-grid{grid-template-columns:1fr 1fr;}
   .cta-in{flex-direction:column;text-align:center;}
   .cta-r{justify-content:center;}
+  /* Nav mobile */
   .n-links{display:none;}
   .n-cta{display:none;}
+  .n-div{display:none;}
+  .n-tagline{display:block;}
   .n-burger{display:flex;}
 }
 @media(max-width:600px){
