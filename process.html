@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Process – Legacy IV Digital Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ═══ PROCESS PAGE ═══ */
+    .proc-hero{
+      position:relative;padding:140px 28px 80px;text-align:center;
+      background:linear-gradient(180deg,rgba(249,115,22,.08) 0%,#000 60%);
+      border-bottom:1px solid rgba(249,115,22,.1);
+    }
+    .proc-hero::before{
+      content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
+      width:500px;height:300px;
+      background:radial-gradient(ellipse at 50% 0%,rgba(249,115,22,.15) 0%,transparent 70%);
+      pointer-events:none;
+    }
+    .proc-hero h1{
+      font-family:'Oswald',sans-serif;font-size:clamp(32px,5vw,56px);
+      font-weight:700;letter-spacing:4px;text-transform:uppercase;
+      color:#fff;margin-bottom:20px;
+      text-shadow:0 0 30px rgba(249,115,22,.15);
+    }
+    .proc-hero h1 span{color:var(--or);text-shadow:0 0 24px rgba(249,115,22,.4);}
+    .proc-hero p{
+      font-size:16px;color:var(--muted);line-height:1.7;
+      max-width:580px;margin:0 auto;
+    }
+
+    /* ═══ TIMELINE ═══ */
+    .proc-section{padding:80px 0;background:var(--bg);}
+
+    .timeline{
+      position:relative;max-width:900px;margin:0 auto;
+    }
+    /* Vertical line running through center */
+    .timeline::before{
+      content:'';position:absolute;left:50%;top:0;bottom:0;
+      width:1.5px;transform:translateX(-50%);
+      background:linear-gradient(180deg,
+        transparent 0%,
+        rgba(249,115,22,.5) 8%,
+        rgba(249,115,22,.3) 50%,
+        rgba(249,115,22,.5) 92%,
+        transparent 100%);
+      box-shadow:0 0 12px rgba(249,115,22,.2);
+    }
+
+    .tl-step{
+      display:grid;grid-template-columns:1fr 60px 1fr;
+      gap:0;align-items:start;margin-bottom:56px;
+      position:relative;
+    }
+    .tl-step:last-child{margin-bottom:0;}
+
+    /* Step content — alternates left/right */
+    .tl-content{
+      background:linear-gradient(180deg,rgba(249,115,22,.04) 0%,var(--card) 35%);
+      border:1px solid var(--bdr2);border-radius:6px;
+      padding:28px 26px;position:relative;
+      animation:borderGlow 4s ease infinite;
+      transition:all .3s;
+    }
+    .tl-content:hover{
+      border-color:rgba(249,115,22,.4);
+      box-shadow:0 0 2px rgba(249,115,22,.3),0 8px 36px rgba(249,115,22,.1);
+      transform:translateY(-3px);
+    }
+    .tl-content::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:2px;
+      background:linear-gradient(90deg,transparent,var(--or),transparent);
+      opacity:.35;border-radius:6px 6px 0 0;transition:opacity .3s;
+    }
+    .tl-content:hover::before{opacity:.9;}
+
+    /* Left side content — arrow points right */
+    .tl-left{
+      grid-column:1;text-align:right;
+    }
+    .tl-left .tl-content::after{
+      content:'';position:absolute;right:-10px;top:28px;
+      border:5px solid transparent;
+      border-left:6px solid rgba(249,115,22,.2);
+    }
+
+    /* Right side content — arrow points left */
+    .tl-right{
+      grid-column:3;text-align:left;
+    }
+    .tl-right .tl-content::after{
+      content:'';position:absolute;left:-10px;top:28px;
+      border:5px solid transparent;
+      border-right:6px solid rgba(249,115,22,.2);
+    }
+
+    /* Empty spacer for opposite side */
+    .tl-spacer{grid-column:1;}
+    .tl-spacer.right{grid-column:3;}
+
+    /* Center node */
+    .tl-node{
+      grid-column:2;display:flex;flex-direction:column;
+      align-items:center;justify-content:flex-start;
+      padding-top:24px;gap:0;position:relative;
+      z-index:2;
+    }
+    .tl-dot{
+      width:48px;height:48px;border-radius:50%;
+      border:1.5px solid var(--or);
+      background:var(--bg);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--or);flex-shrink:0;
+      box-shadow:0 0 20px rgba(249,115,22,.25),inset 0 0 12px rgba(249,115,22,.06);
+      transition:all .3s;
+    }
+    .tl-step:hover .tl-dot{
+      box-shadow:0 0 32px rgba(249,115,22,.45),inset 0 0 16px rgba(249,115,22,.1);
+      border-color:#fb923c;
+    }
+    .tl-dot svg{width:20px;height:20px;filter:drop-shadow(0 0 4px rgba(249,115,22,.5));}
+    .tl-num{
+      font-family:'Oswald',sans-serif;font-size:10px;font-weight:600;
+      letter-spacing:1px;color:rgba(249,115,22,.4);
+      margin-top:6px;
+    }
+
+    /* Content typography */
+    .tl-phase{
+      font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;
+      letter-spacing:3px;text-transform:uppercase;color:var(--or);
+      margin-bottom:8px;text-shadow:0 0 8px rgba(249,115,22,.25);
+    }
+    .tl-content h3{
+      font-family:'Oswald',sans-serif;font-size:20px;font-weight:600;
+      letter-spacing:2px;text-transform:uppercase;color:#fff;
+      margin-bottom:12px;
+    }
+    .tl-content p{font-size:13.5px;color:var(--muted);line-height:1.7;}
+    .tl-content strong{color:#e5e7eb;}
+
+    /* Deliverables list */
+    .tl-list{
+      margin-top:14px;display:flex;flex-direction:column;gap:6px;
+    }
+    .tl-item{
+      display:flex;align-items:center;gap:8px;
+      font-size:12px;color:var(--muted);
+    }
+    .tl-item::before{
+      content:'';width:5px;height:5px;border-radius:50%;
+      background:var(--or);flex-shrink:0;
+      box-shadow:0 0 6px rgba(249,115,22,.4);
+    }
+    /* Right-align bullets for left-side cards */
+    .tl-left .tl-list{align-items:flex-end;}
+    .tl-left .tl-item{flex-direction:row-reverse;}
+
+    /* Timeline bottom CTA */
+    .tl-end{
+      display:flex;flex-direction:column;align-items:center;
+      margin-top:56px;padding-top:48px;
+      border-top:1px solid rgba(249,115,22,.08);text-align:center;
+    }
+    .tl-end-dot{
+      width:64px;height:64px;border-radius:50%;
+      border:1.5px solid var(--or);
+      background:linear-gradient(180deg,rgba(249,115,22,.1),var(--card));
+      display:flex;align-items:center;justify-content:center;
+      color:var(--or);margin-bottom:20px;
+      box-shadow:0 0 30px rgba(249,115,22,.3);
+      animation:pulse 2.5s infinite;
+    }
+    .tl-end-dot svg{width:28px;height:28px;filter:drop-shadow(0 0 6px rgba(249,115,22,.5));}
+    .tl-end h3{
+      font-family:'Oswald',sans-serif;font-size:clamp(20px,3vw,28px);
+      font-weight:600;letter-spacing:3px;text-transform:uppercase;
+      color:#fff;margin-bottom:10px;
+    }
+    .tl-end h3 span{color:var(--or);text-shadow:0 0 16px rgba(249,115,22,.35);}
+    .tl-end p{font-size:14px;color:var(--muted);margin-bottom:28px;max-width:460px;}
+
+    /* ═══ MOBILE STACKED TIMELINE ═══ */
+    @media(max-width:760px){
+      .timeline::before{left:24px;}
+      .tl-step{grid-template-columns:48px 1fr;grid-template-rows:auto;}
+      .tl-node{grid-column:1;grid-row:1;padding-top:0;}
+      .tl-num{display:none;}
+      .tl-left,.tl-right{grid-column:2;grid-row:1;text-align:left;}
+      .tl-spacer,.tl-spacer.right{display:none;}
+      .tl-left .tl-content::after{
+        right:auto;left:-10px;
+        border-left:none;border-right:6px solid rgba(249,115,22,.2);
+      }
+      .tl-left .tl-list{align-items:flex-start;}
+      .tl-left .tl-item{flex-direction:row;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════ NAV ══════ -->
+<nav>
+  <a href="tel:3252062179" class="n-phone">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.52 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.83-.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    (325) 206-2179
+  </a>
+  <div class="n-div"></div>
+  <span class="n-tagline">Build. Growth. Optimize.</span>
+  <ul class="n-links">
+    <li><a href="index.html#svc">Services</a></li>
+    <li><a href="process.html">Process</a></li>
+    <li><a href="work.html">Our Work</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="https://cal.com/legacy-iv" target="_blank">Book a Consultation</a></li>
+  </ul>
+  <a href="https://cal.com/legacy-iv" target="_blank" class="n-cta">Book Consultation →</a>
+  <button class="n-burger" onclick="document.querySelector('.n-mobile').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="n-mobile">
+  <a href="index.html#svc" onclick="this.parentElement.classList.remove('open')">Services</a>
+  <a href="process.html">Process</a>
+  <a href="work.html">Our Work</a>
+  <a href="about.html">About</a>
+  <a href="#ft" onclick="this.parentElement.classList.remove('open')">Contact</a>
+  <a href="https://cal.com/legacy-iv" target="_blank" class="n-mob-cta">Book a Consultation</a>
+  <a href="tel:3252062179" style="text-align:center;color:var(--or);font-size:13px;padding-top:4px;border-bottom:none;">Or call — (325) 206-2179</a>
+</div>
+
+<!-- ══════ HERO ══════ -->
+<div class="proc-hero">
+  <div class="s-eye">How It Works</div>
+  <h1>The <span>Growth Infrastructure</span> Process.</h1>
+  <p>Six phases. One connected system. Built to run your business growth on autopilot from day one.</p>
+</div>
+
+<div class="glow-line"></div>
+
+<!-- ══════ TIMELINE ══════ -->
+<section class="proc-section">
+  <div class="container">
+    <div class="timeline">
+
+      <!-- PHASE 1: CONSULTATION -->
+      <div class="tl-step rv">
+        <div class="tl-left">
+          <div class="tl-content">
+            <div class="tl-phase">Phase 01</div>
+            <h3>Discovery & Strategy</h3>
+            <p>Every build starts with a conversation. We learn your business, your goals, and where your biggest gaps are. Then we map out exactly what your infrastructure needs to look like — no upsells, no fluff, just what will actually move the needle.</p>
+            <div class="tl-list">
+              <div class="tl-item">Free consultation call</div>
+              <div class="tl-item">Business & competitor analysis</div>
+              <div class="tl-item">Custom scope of work</div>
+              <div class="tl-item">Terms & agreement</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="tl-num">01</div>
+        </div>
+        <div class="tl-spacer right"></div>
+      </div>
+
+      <!-- PHASE 2: BRAND FOUNDATION -->
+      <div class="tl-step rv">
+        <div class="tl-spacer"></div>
+        <div class="tl-node">
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="tl-num">02</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-content">
+            <div class="tl-phase">Phase 02</div>
+            <h3>Brand Foundation</h3>
+            <p>Before anything gets built, your brand needs a foundation. We design a logo and visual identity that positions your business as professional, credible, and worth calling — because first impressions close deals before you ever pick up the phone.</p>
+            <div class="tl-list">
+              <div class="tl-item">Custom logo design</div>
+              <div class="tl-item">Brand color palette & typography</div>
+              <div class="tl-item">Brand assets delivered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 3: WEBSITE -->
+      <div class="tl-step rv">
+        <div class="tl-left">
+          <div class="tl-content">
+            <div class="tl-phase">Phase 03</div>
+            <h3>Website Build</h3>
+            <p>Your website isn't a digital brochure — it's your best salesperson. We build custom, mobile-first websites designed to convert visitors into leads. Every page has a purpose. Every button has a destination. No templates. No shortcuts.</p>
+            <div class="tl-list">
+              <div class="tl-item">Custom responsive design</div>
+              <div class="tl-item">Lead capture & conversion focus</div>
+              <div class="tl-item">Fast load speed & SEO foundation</div>
+              <div class="tl-item">Contact forms & click-to-call</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="2" y1="7" x2="22" y2="7"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div class="tl-num">03</div>
+        </div>
+        <div class="tl-spacer right"></div>
+      </div>
+
+      <!-- PHASE 4: SOCIAL MEDIA -->
+      <div class="tl-step rv">
+        <div class="tl-spacer"></div>
+        <div class="tl-node">
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <div class="tl-num">04</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-content">
+            <div class="tl-phase">Phase 04</div>
+            <h3>Social Media</h3>
+            <p>Your customers are on social media before they ever Google you. We build out your Facebook and Instagram presence, set up your profiles the right way, and manage your content so you stay visible and active — even while you're on the job.</p>
+            <div class="tl-list">
+              <div class="tl-item">Facebook & Instagram setup</div>
+              <div class="tl-item">Branded profile & cover design</div>
+              <div class="tl-item">Ongoing content management</div>
+              <div class="tl-item">Audience building & engagement</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PHASE 5: GBP / VISIBILITY -->
+      <div class="tl-step rv">
+        <div class="tl-left">
+          <div class="tl-content">
+            <div class="tl-phase">Phase 05</div>
+            <h3>Local Visibility</h3>
+            <p>For home service businesses, local search is where jobs come from. We build and optimize your Google Business Profile so you show up when someone in your area searches for what you do. Reviews, photos, service areas, categories — all dialed in.</p>
+            <div class="tl-list">
+              <div class="tl-item">GBP build or claim</div>
+              <div class="tl-item">Full profile optimization</div>
+              <div class="tl-item">Service area & category setup</div>
+              <div class="tl-item">Review strategy</div>
+            </div>
+          </div>
+        </div>
+        <div class="tl-node">
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="2"/><path d="M22 12c-2.667 4.667-6 7-10 7s-7.333-2.333-10-7c2.667-4.667 6-7 10-7s7.333 2.333 10 7"/></svg>
+          </div>
+          <div class="tl-num">05</div>
+        </div>
+        <div class="tl-spacer right"></div>
+      </div>
+
+      <!-- PHASE 6: CRM & AUTOMATION -->
+      <div class="tl-step rv">
+        <div class="tl-spacer"></div>
+        <div class="tl-node">
+          <div class="tl-dot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+          </div>
+          <div class="tl-num">06</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-content">
+            <div class="tl-phase">Phase 06</div>
+            <h3>CRM & Automation</h3>
+            <p>This is where everything connects. We build your CRM, set up automated follow-up sequences, and create workflows that capture every lead and move them through your pipeline — whether you're on a roof or on the road. No lead falls through the cracks.</p>
+            <div class="tl-list">
+              <div class="tl-item">CRM account setup & configuration</div>
+              <div class="tl-item">Automated follow-up sequences</div>
+              <div class="tl-item">Lead pipeline & workflow build</div>
+              <div class="tl-item">Ongoing lead management</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- END NODE -->
+      <div class="tl-end rv">
+        <div class="tl-end-dot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <h3>Your Infrastructure is <span>Live.</span></h3>
+        <p>Six phases. One unified system. Your business now has the foundation to generate leads, follow up automatically, and grow consistently — without you managing every piece manually.</p>
+        <a href="https://cal.com/legacy-iv" target="_blank" class="btn-f">Start the Process →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CTA BANNER ══════ -->
+<section id="cta">
+  <div class="cta-bg"></div>
+  <div class="cta-in">
+    <div><h2>Ready to Get<br><span>Started?</span></h2></div>
+    <div class="cta-r">
+      <div class="cta-badge">
+        <div class="cta-sh">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <p>Book a free consultation.<br>No pressure, no obligation.</p>
+      </div>
+      <a href="https://cal.com/legacy-iv" target="_blank" class="btn-f">Book Your Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer id="ft">
+  <div class="container">
+    <div class="ft-grid">
+      <div><img src="IV_logo.png" alt="Legacy IV Digital Solutions" class="ft-logo-img"></div>
+      <div>
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="work.html">Our Work</a></li>
+          <li><a href="https://cal.com/legacy-iv" target="_blank">Book a Consultation</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Service</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#svc">CRM Systems</a></li>
+          <li><a href="index.html#svc">Automation</a></li>
+          <li><a href="index.html#svc">Websites</a></li>
+          <li><a href="index.html#svc">Visibility</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Let's Connect</h5>
+        <div class="ft-ci">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.58 3.52 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9a16 16 0 0 0 6.29 6.29l.83-.83a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:3252062179">(325) 206-2179</a>
+        </div>
+        <div class="ft-ci">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:j.holland@legacyivdigital.com">j.holland@legacyivdigital.com</a>
+        </div>
+        <div class="ft-ci">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>DFW, TX</span>
+        </div>
+      </div>
+    </div>
+    <div class="ft-bot">
+      <p>&copy; 2025 Legacy IV Digital Solutions. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const o = new IntersectionObserver(e => {
+    e.forEach(el => { if (el.isIntersecting) { el.target.classList.add('v'); o.unobserve(el.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.rv').forEach(el => o.observe(el));
+</script>
+</body>
+</html>
