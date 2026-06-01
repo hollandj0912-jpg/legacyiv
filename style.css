@@ -158,9 +158,12 @@ nav{
 .h-h1 em{color:var(--or);font-style:normal;text-shadow:0 0 24px rgba(249,115,22,.45);}
 
 .h-p{
-  font-size:14px;line-height:1.75;color:var(--muted);
+  font-size:14px;line-height:1.75;color:#b0b3b8;
   max-width:500px;margin:0 auto 36px;
-  text-shadow:0 1px 8px rgba(0,0,0,.7);
+  text-shadow:0 1px 6px rgba(0,0,0,.9),0 0 20px rgba(0,0,0,.7);
+  background:rgba(0,0,0,.35);
+  padding:16px 24px;border-radius:4px;
+  backdrop-filter:blur(4px);
 }
 
 .h-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
@@ -510,6 +513,11 @@ section{padding:72px 0;}
 footer{background:#000;border-top:1px solid rgba(249,115,22,.08);padding:56px 0 28px;}
 
 .ft-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.4fr;gap:44px;margin-bottom:48px;}
+
+.ft-logo-img{
+  max-width:220px;height:auto;
+  filter:drop-shadow(0 0 16px rgba(249,115,22,0.2));
+}
 
 .ft-wm{
   font-family:'Oswald',sans-serif;font-size:24px;font-weight:700;
