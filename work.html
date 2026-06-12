@@ -35,7 +35,7 @@
     .projects{padding:80px 0;background:var(--bg);}
     .proj{
       display:grid;grid-template-columns:1fr 1fr;gap:48px;
-      align-items:center;margin-bottom:80px;
+      align-items:start;margin-bottom:80px;
       position:relative;
     }
     .proj:last-child{margin-bottom:0;}
@@ -60,7 +60,6 @@
       background:linear-gradient(90deg,transparent,var(--or),transparent);
       opacity:.5;border-radius:8px 8px 0 0;
     }
-    /* Glow behind image */
     .proj-glow{
       position:absolute;inset:-20px;z-index:-1;
       background:radial-gradient(ellipse at 50% 50%,rgba(249,115,22,.08) 0%,transparent 70%);
@@ -91,7 +90,6 @@
     }
     .proj-info p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:20px;}
 
-    /* What was built tags */
     .proj-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
     .proj-tag{
       padding:6px 14px;border:1px solid var(--bdr);border-radius:4px;
@@ -101,14 +99,93 @@
       box-shadow:0 0 8px rgba(249,115,22,.06);
     }
 
-    /* Divider between projects */
+    /* ── RESULTS BLOCK ── */
+    .results-block{
+      margin:28px 0 24px;
+      border:1px solid rgba(249,115,22,.2);
+      border-radius:8px;
+      background:rgba(249,115,22,.03);
+      overflow:hidden;
+    }
+    .results-header{
+      padding:12px 20px;
+      border-bottom:1px solid rgba(249,115,22,.15);
+      background:rgba(249,115,22,.06);
+      font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;
+      letter-spacing:3px;text-transform:uppercase;color:var(--or);
+      display:flex;align-items:center;gap:8px;
+    }
+    .results-header::before{
+      content:'';width:6px;height:6px;border-radius:50%;
+      background:var(--or);box-shadow:0 0 6px rgba(249,115,22,.8);
+      animation:blink 2s infinite;
+    }
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+    .results-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);
+    }
+    .result-stat{
+      padding:20px;
+      border-right:1px solid rgba(249,115,22,.1);
+      text-align:center;
+    }
+    .result-stat:last-child{border-right:none;}
+    .result-before{
+      font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;
+      letter-spacing:1.5px;text-transform:uppercase;
+      color:rgba(255,255,255,.3);margin-bottom:4px;
+    }
+    .result-arrow{
+      font-size:16px;color:var(--or);margin:4px 0;line-height:1;
+    }
+    .result-after{
+      font-family:'Oswald',sans-serif;font-size:22px;font-weight:700;
+      color:#fff;line-height:1;margin-bottom:4px;
+    }
+    .result-after span{color:var(--or);}
+    .result-label{
+      font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;
+      letter-spacing:1.5px;text-transform:uppercase;
+      color:rgba(255,255,255,.4);
+    }
+    .result-change{
+      font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;
+      letter-spacing:1px;color:#22c55e;margin-top:4px;
+    }
+
+    /* bottom results row */
+    .results-bottom{
+      display:grid;grid-template-columns:1fr 1fr;
+      border-top:1px solid rgba(249,115,22,.1);
+    }
+    .result-wide{
+      padding:16px 20px;
+      border-right:1px solid rgba(249,115,22,.1);
+      display:flex;align-items:center;gap:14px;
+    }
+    .result-wide:last-child{border-right:none;}
+    .result-wide-icon{
+      width:36px;height:36px;border-radius:6px;
+      background:rgba(249,115,22,.1);border:1px solid rgba(249,115,22,.2);
+      display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    }
+    .result-wide-icon svg{width:16px;height:16px;stroke:var(--or);fill:none;stroke-width:2;stroke-linecap:round;}
+    .result-wide-text{}
+    .result-wide-num{
+      font-family:'Oswald',sans-serif;font-size:18px;font-weight:700;color:#fff;
+    }
+    .result-wide-num span{color:var(--or);}
+    .result-wide-lbl{
+      font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:600;
+      letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.4);
+    }
+
     .proj-divider{
       height:1px;max-width:300px;margin:0 auto 80px;
       background:linear-gradient(90deg,transparent,rgba(249,115,22,.3),transparent);
       box-shadow:0 0 10px rgba(249,115,22,.15);
     }
 
-    /* Bottom CTA area */
     .work-cta{
       text-align:center;padding:60px 0 0;
       border-top:1px solid rgba(249,115,22,.08);
@@ -121,10 +198,66 @@
     .work-cta h3 span{color:var(--or);text-shadow:0 0 16px rgba(249,115,22,.3);}
     .work-cta p{font-size:14px;color:var(--muted);margin-bottom:28px;}
 
+
+    /* ── PROOF GALLERY ── */
+    .proof-gallery{
+      border-top:1px solid rgba(249,115,22,.1);
+    }
+    .proof-header{
+      padding:12px 20px;
+      font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:700;
+      letter-spacing:3px;text-transform:uppercase;
+      color:rgba(255,255,255,.4);
+      border-bottom:1px solid rgba(249,115,22,.08);
+    }
+    .proof-grid{
+      display:grid;grid-template-columns:1fr 1fr;gap:0;
+    }
+    .proof-item{
+      position:relative;padding:16px;
+      border-right:1px solid rgba(249,115,22,.08);
+      border-bottom:1px solid rgba(249,115,22,.08);
+    }
+    .proof-item:nth-child(even){border-right:none;}
+    .proof-item:nth-child(3),
+    .proof-item:nth-child(4){border-bottom:none;}
+    .proof-label{
+      position:absolute;top:20px;left:20px;z-index:2;
+      font-family:'Rajdhani',sans-serif;font-size:10px;font-weight:700;
+      letter-spacing:2px;text-transform:uppercase;
+      padding:3px 10px;border-radius:3px;
+    }
+    .proof-before{background:rgba(255,255,255,.1);color:rgba(255,255,255,.6);}
+    .proof-after{background:rgba(34,197,94,.15);color:#22c55e;border:1px solid rgba(34,197,94,.3);}
+    .proof-item img{
+      width:100%;height:auto;border-radius:6px;display:block;
+      border:1px solid rgba(249,115,22,.1);
+      opacity:.9;transition:opacity .2s;
+    }
+    .proof-item:hover img{opacity:1;}
+    .proof-caption{
+      margin-top:8px;
+      font-family:'Rajdhani',sans-serif;font-size:11px;font-weight:600;
+      letter-spacing:1px;text-transform:uppercase;
+      color:rgba(255,255,255,.4);text-align:center;
+    }
+    @media(max-width:600px){
+      .proof-grid{grid-template-columns:1fr;}
+      .proof-item{border-right:none;}
+      .proof-item:nth-child(3){border-bottom:1px solid rgba(249,115,22,.08);}
+    }
     @media(max-width:960px){
       .proj{grid-template-columns:1fr;gap:28px;}
       .proj.flip .proj-img{order:0;}
       .proj.flip .proj-info{order:0;}
+      .results-grid{grid-template-columns:repeat(3,1fr);}
+      .results-bottom{grid-template-columns:1fr;}
+      .result-wide{border-right:none;border-bottom:1px solid rgba(249,115,22,.1);}
+      .result-wide:last-child{border-bottom:none;}
+    }
+    @media(max-width:480px){
+      .results-grid{grid-template-columns:1fr 1fr;}
+      .result-stat:nth-child(3){grid-column:span 2;border-right:none;border-top:1px solid rgba(249,115,22,.1);}
     }
   </style>
 </head>
@@ -182,14 +315,91 @@
       <div class="proj-info">
         <div class="proj-label">Client Project</div>
         <h2>Atlas <em>Solar-Tex</em></h2>
-        <div class="proj-industry">Solar Screen Installation</div>
-        <p>Atlas Solar-Tex needed a complete digital infrastructure built from the ground up. We designed their brand identity, built a custom website for lead generation, established their social media presence, optimized their Google Business Profile for local search, and implemented a full CRM with automated follow-up and lead management — already generating qualified leads through the system.</p>
+        <div class="proj-industry">Solar Screen Installation · Joshua, TX</div>
+        <p>Atlas Solar-Tex had been in business for years with virtually no digital presence. We built their entire infrastructure from scratch — website, CRM, automation, social media, and a Google review campaign that reactivated past customers and generated new jobs within days of launch.</p>
+
+        <!-- LIVE RESULTS BLOCK -->
+        <div class="results-block">
+          <div class="results-header">Live Results — 30 Days</div>
+          <div class="results-grid">
+            <div class="result-stat">
+              <div class="result-before">59 views</div>
+              <div class="result-arrow">↓</div>
+              <div class="result-after"><span>3,323</span></div>
+              <div class="result-label">Facebook Views</div>
+              <div class="result-change">+66,360%</div>
+            </div>
+            <div class="result-stat">
+              <div class="result-before">13 reviews</div>
+              <div class="result-arrow">↓</div>
+              <div class="result-after"><span>21</span></div>
+              <div class="result-label">Google Reviews</div>
+              <div class="result-change">+62%</div>
+            </div>
+            <div class="result-stat">
+              <div class="result-before">0 leads</div>
+              <div class="result-arrow">↓</div>
+              <div class="result-after"><span>6</span></div>
+              <div class="result-label">Pipeline Leads</div>
+              <div class="result-change">From Zero</div>
+            </div>
+          </div>
+          <div class="results-bottom">
+            <div class="result-wide">
+              <div class="result-wide-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.41 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="result-wide-text">
+                <div class="result-wide-num">4 <span>Inbound Conversations</span></div>
+                <div class="result-wide-lbl">Generated via Facebook & Website</div>
+              </div>
+            </div>
+            <div class="result-wide">
+              <div class="result-wide-icon">
+                <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div class="result-wide-text">
+                <div class="result-wide-num"><span>Past Customers</span> Reactivated</div>
+                <div class="result-wide-lbl">Review campaign generating new jobs</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SCREENSHOT PROOF GALLERY -->
+          <div class="proof-gallery">
+            <div class="proof-header">Verified Screenshots</div>
+            <div class="proof-grid">
+              <div class="proof-item">
+                <div class="proof-label proof-before">Before</div>
+                <img src="fbbefore.png" alt="Facebook Analytics Before Legacy IV">
+                <div class="proof-caption">Facebook &mdash; 59 Views</div>
+              </div>
+              <div class="proof-item">
+                <div class="proof-label proof-after">After</div>
+                <img src="fbafter.png" alt="Facebook Analytics After Legacy IV">
+                <div class="proof-caption">Facebook &mdash; 3,323 Views &nbsp;+66,360%</div>
+              </div>
+              <div class="proof-item">
+                <div class="proof-label proof-before">Before</div>
+                <img src="gbpbefore.png" alt="Google Business Profile Before Legacy IV">
+                <div class="proof-caption">Google &mdash; 13 Reviews &nbsp;4.4 Stars</div>
+              </div>
+              <div class="proof-item">
+                <div class="proof-label proof-after">After</div>
+                <img src="gbpafter.png" alt="Google Business Profile After Legacy IV">
+                <div class="proof-caption">Google &mdash; 21 Reviews &nbsp;4.6 Stars</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div class="proj-tags">
           <span class="proj-tag">Custom Website</span>
           <span class="proj-tag">Logo Design</span>
           <span class="proj-tag">Facebook & Instagram</span>
           <span class="proj-tag">GBP Optimization</span>
           <span class="proj-tag">CRM & Automation</span>
+          <span class="proj-tag">Review Campaign</span>
           <span class="proj-tag">Lead Management</span>
           <span class="proj-tag">Social Media Management</span>
         </div>
