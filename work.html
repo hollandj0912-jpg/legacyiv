@@ -34,8 +34,8 @@
     /* Project cards */
     .projects{padding:80px 0;background:var(--bg);}
     .proj{
-      display:grid;grid-template-columns:1fr 1fr;gap:48px;
-      align-items:start;margin-bottom:80px;
+      display:grid;grid-template-columns:1fr 1fr;gap:60px;
+      align-items:start;margin-bottom:40px;
       position:relative;
     }
     .proj:last-child{margin-bottom:0;}
@@ -227,20 +227,23 @@
     }
     .proof-grid-full{
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 0;
     }
     .proof-item-full{
       position: relative;
-      padding: 20px;
+      padding: 24px;
       border-right: 1px solid rgba(249,115,22,.08);
+      border-bottom: 1px solid rgba(249,115,22,.08);
     }
-    .proof-item-full:last-child{ border-right: none; }
+    .proof-item-full:nth-child(even){ border-right: none; }
+    .proof-item-full:nth-child(3),
+    .proof-item-full:nth-child(4){ border-bottom: none; }
     .proof-item-full img{
       width: 100%; height: auto;
       border-radius: 6px; display: block;
       border: 1px solid rgba(249,115,22,.12);
-      opacity: .85; transition: opacity .2s, transform .2s;
+      opacity: 1; transition: opacity .2s, transform .2s;
     }
     .proof-item-full:hover img{ opacity: 1; transform: scale(1.01); }
     .proof-label{
@@ -260,16 +263,10 @@
       letter-spacing: 1px; text-transform: uppercase;
       color: rgba(255,255,255,.4); text-align: center;
     }
-    @media(max-width: 860px){
-      .proof-grid-full{ grid-template-columns: 1fr 1fr; }
-      .proof-item-full:nth-child(even){ border-right: none; }
-      .proof-item-full:nth-child(1),
-      .proof-item-full:nth-child(2){ border-bottom: 1px solid rgba(249,115,22,.08); }
-    }
     @media(max-width: 480px){
       .proof-grid-full{ grid-template-columns: 1fr; }
-      .proof-item-full{ border-right: none; border-bottom: 1px solid rgba(249,115,22,.08); }
-      .proof-item-full:last-child{ border-bottom: none; }
+      .proof-item-full{ border-right: none !important; border-bottom: 1px solid rgba(249,115,22,.08) !important; }
+      .proof-item-full:last-child{ border-bottom: none !important; }
     }
     /* ── PROOF GALLERY (old) ── */
     .proof-gallery{
