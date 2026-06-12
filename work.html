@@ -199,7 +199,79 @@
     .work-cta p{font-size:14px;color:var(--muted);margin-bottom:28px;}
 
 
-    /* ── PROOF GALLERY ── */
+
+    /* ── FULL WIDTH PROOF GALLERY ── */
+    .proof-gallery-full{
+      margin-bottom: 48px;
+      border: 1px solid rgba(249,115,22,.2);
+      border-radius: 8px;
+      background: rgba(249,115,22,.03);
+      overflow: hidden;
+    }
+    .proof-gallery-header{
+      padding: 12px 24px;
+      border-bottom: 1px solid rgba(249,115,22,.15);
+      background: rgba(249,115,22,.06);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 3px; text-transform: uppercase;
+      color: var(--or);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .proof-pulse{
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--or);
+      box-shadow: 0 0 6px rgba(249,115,22,.8);
+      animation: blink 2s infinite;
+      flex-shrink: 0;
+    }
+    .proof-grid-full{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .proof-item-full{
+      position: relative;
+      padding: 20px;
+      border-right: 1px solid rgba(249,115,22,.08);
+    }
+    .proof-item-full:last-child{ border-right: none; }
+    .proof-item-full img{
+      width: 100%; height: auto;
+      border-radius: 6px; display: block;
+      border: 1px solid rgba(249,115,22,.12);
+      opacity: .85; transition: opacity .2s, transform .2s;
+    }
+    .proof-item-full:hover img{ opacity: 1; transform: scale(1.01); }
+    .proof-label{
+      display: inline-block;
+      margin-bottom: 10px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase;
+      padding: 3px 12px; border-radius: 3px;
+    }
+    .proof-before{ background: rgba(255,255,255,.08); color: rgba(255,255,255,.5); }
+    .proof-after{ background: rgba(34,197,94,.15); color: #22c55e; border: 1px solid rgba(34,197,94,.25); }
+    .proof-caption{
+      margin-top: 10px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase;
+      color: rgba(255,255,255,.4); text-align: center;
+    }
+    @media(max-width: 860px){
+      .proof-grid-full{ grid-template-columns: 1fr 1fr; }
+      .proof-item-full:nth-child(even){ border-right: none; }
+      .proof-item-full:nth-child(1),
+      .proof-item-full:nth-child(2){ border-bottom: 1px solid rgba(249,115,22,.08); }
+    }
+    @media(max-width: 480px){
+      .proof-grid-full{ grid-template-columns: 1fr; }
+      .proof-item-full{ border-right: none; border-bottom: 1px solid rgba(249,115,22,.08); }
+      .proof-item-full:last-child{ border-bottom: none; }
+    }
+    /* ── PROOF GALLERY (old) ── */
     .proof-gallery{
       border-top:1px solid rgba(249,115,22,.1);
     }
@@ -365,32 +437,7 @@
             </div>
           </div>
 
-          <!-- SCREENSHOT PROOF GALLERY -->
-          <div class="proof-gallery">
-            <div class="proof-header">Verified Screenshots</div>
-            <div class="proof-grid">
-              <div class="proof-item">
-                <div class="proof-label proof-before">Before</div>
-                <img src="fbbefore.png" alt="Facebook Analytics Before Legacy IV">
-                <div class="proof-caption">Facebook &mdash; 59 Views</div>
-              </div>
-              <div class="proof-item">
-                <div class="proof-label proof-after">After</div>
-                <img src="fbafter.png" alt="Facebook Analytics After Legacy IV">
-                <div class="proof-caption">Facebook &mdash; 3,323 Views &nbsp;+66,360%</div>
-              </div>
-              <div class="proof-item">
-                <div class="proof-label proof-before">Before</div>
-                <img src="gbpbefore.png" alt="Google Business Profile Before Legacy IV">
-                <div class="proof-caption">Google &mdash; 13 Reviews &nbsp;4.4 Stars</div>
-              </div>
-              <div class="proof-item">
-                <div class="proof-label proof-after">After</div>
-                <img src="gbpafter.png" alt="Google Business Profile After Legacy IV">
-                <div class="proof-caption">Google &mdash; 21 Reviews &nbsp;4.6 Stars</div>
-              </div>
-            </div>
-          </div>
+
         </div>
 
         <div class="proj-tags">
@@ -404,6 +451,37 @@
           <span class="proj-tag">Social Media Management</span>
         </div>
         <a href="https://solartexsolarscreens.com" target="_blank" style="font-family:'Rajdhani',sans-serif;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--or);display:inline-flex;align-items:center;gap:6px;transition:all .2s;text-shadow:0 0 8px rgba(249,115,22,.2);">View Live Site <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
+      </div>
+    </div>
+
+
+    <!-- FULL WIDTH PROOF GALLERY -->
+    <div class="proof-gallery-full rv">
+      <div class="proof-gallery-header">
+        <span class="proof-pulse"></span>
+        Verified Results — Atlas Solar-Tex
+      </div>
+      <div class="proof-grid-full">
+        <div class="proof-item-full">
+          <div class="proof-label proof-before">Before</div>
+          <img src="fbbefore.png" alt="Facebook Analytics Before Legacy IV">
+          <div class="proof-caption">Facebook — 59 Views</div>
+        </div>
+        <div class="proof-item-full">
+          <div class="proof-label proof-after">After</div>
+          <img src="fbafter.png" alt="Facebook Analytics After Legacy IV">
+          <div class="proof-caption">Facebook — 3,323 Views · +66,360%</div>
+        </div>
+        <div class="proof-item-full">
+          <div class="proof-label proof-before">Before</div>
+          <img src="gbpbefore.png" alt="Google Business Profile Before Legacy IV">
+          <div class="proof-caption">Google — 13 Reviews · 4.4 Stars</div>
+        </div>
+        <div class="proof-item-full">
+          <div class="proof-label proof-after">After</div>
+          <img src="gbpafter.png" alt="Google Business Profile After Legacy IV">
+          <div class="proof-caption">Google — 21 Reviews · 4.6 Stars</div>
+        </div>
       </div>
     </div>
 
