@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Proposal | JCF Quality Construction</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: #f4f4f4;
+  font-family: 'Open Sans', sans-serif;
+  color: #1a1a1a;
+  padding: 40px 20px;
+}
+.page {
+  max-width: 780px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+}
+
+/* Header */
+.header {
+  background: #0a0a0a;
+  padding: 40px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-left h1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #f97316;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.header-left p {
+  font-size: 12px;
+  color: #888;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+.header-right {
+  text-align: right;
+}
+.header-right p {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.8;
+}
+.header-right a {
+  color: #f97316;
+  text-decoration: none;
+}
+
+/* Orange bar */
+.bar {
+  height: 4px;
+  background: linear-gradient(90deg, #f97316, #ea580c);
+}
+
+/* Intro */
+.intro {
+  padding: 40px 48px 32px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.intro h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #0a0a0a;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.intro p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #444;
+}
+.intro p span {
+  color: #f97316;
+  font-weight: 600;
+}
+
+/* Opportunity */
+.opportunity {
+  padding: 32px 48px;
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+}
+.opportunity h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f97316;
+  margin-bottom: 16px;
+}
+.opp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.opp-item {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-left: 3px solid #f97316;
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+.opp-item h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0a0a0a;
+  margin-bottom: 4px;
+}
+.opp-item p {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Services */
+.services {
+  padding: 32px 48px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.services h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f97316;
+  margin-bottom: 20px;
+}
+.service-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  align-items: flex-start;
+}
+.service-num {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  background: #f97316;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+}
+.service-content h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #0a0a0a;
+  margin-bottom: 4px;
+}
+.service-content p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Pricing */
+.pricing {
+  padding: 32px 48px;
+  background: #fafafa;
+  border-bottom: 1px solid #f0f0f0;
+}
+.pricing h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f97316;
+  margin-bottom: 20px;
+}
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.price-card {
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 24px;
+  text-align: center;
+}
+.price-card.highlight {
+  border-color: #f97316;
+  box-shadow: 0 0 0 1px #f97316;
+}
+.price-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 8px;
+}
+.price-amount {
+  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  color: #f97316;
+  line-height: 1;
+}
+.price-amount span {
+  font-size: 16px;
+  color: #888;
+  font-weight: 400;
+}
+.price-desc {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+.price-note {
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+  margin-top: 14px;
+  font-style: italic;
+}
+
+/* ROI */
+.roi {
+  padding: 28px 48px;
+  background: #0a0a0a;
+  border-bottom: 1px solid #222;
+}
+.roi h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f97316;
+  margin-bottom: 12px;
+}
+.roi p {
+  font-size: 14px;
+  color: #ccc;
+  line-height: 1.7;
+}
+.roi p strong {
+  color: #f97316;
+}
+
+/* Footer */
+.footer {
+  padding: 32px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-left p {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.7;
+}
+.footer-left strong {
+  color: #0a0a0a;
+}
+.footer-cta {
+  background: #f97316;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 6px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .header { flex-direction: column; gap: 16px; padding: 28px 24px; }
+  .header-right { text-align: left; }
+  .intro, .opportunity, .services, .pricing, .roi, .footer { padding: 28px 24px; }
+  .opp-grid, .pricing-grid { grid-template-columns: 1fr; }
+  .footer { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Legacy IV Digital Solutions</h1>
+      <p>Service Proposal — JCF Quality Construction</p>
+    </div>
+    <div class="header-right">
+      <p>
+        Josh Holland<br>
+        <a href="mailto:j.holland@legacyivdigital.com">j.holland@legacyivdigital.com</a><br>
+        <a href="tel:6824227170">(682) 422-7170</a><br>
+        legacyivdigital.com
+      </p>
+    </div>
+  </div>
+  <div class="bar"></div>
+
+  <!-- Intro -->
+  <div class="intro">
+    <h2>Prepared for Juventino — JCF Quality Construction</h2>
+    <p>
+      JCF Quality Construction has built a solid operation offering equipment rental across Johnson County — skid steers, scissor lifts, dump trailers, and more. With <span>10 units</span> and a growing client base, the foundation is there. The opportunity is getting more contractors to find you when they need equipment and making it easy for them to book.
+    </p>
+    <p style="margin-top:12px;">
+      Right now JCF has no website, no Google Business Profile, and no formal digital presence. Contractors searching for equipment rental in your area are going straight to competitors who show up online. This proposal outlines exactly how Legacy IV Digital Solutions fixes that.
+    </p>
+  </div>
+
+  <!-- Opportunity -->
+  <div class="opportunity">
+    <h3>The Gaps We're Solving</h3>
+    <div class="opp-grid">
+      <div class="opp-item">
+        <h4>No Website</h4>
+        <p>Contractors can't see your equipment, availability, or pricing without calling first. A website removes that friction.</p>
+      </div>
+      <div class="opp-item">
+        <h4>No Google Presence</h4>
+        <p>When someone searches "equipment rental Johnson County" you don't exist. A GBP puts you on the map immediately.</p>
+      </div>
+      <div class="opp-item">
+        <h4>No Reviews</h4>
+        <p>Contractors trust reviews before booking. Zero reviews means zero credibility to someone who doesn't know you.</p>
+      </div>
+      <div class="opp-item">
+        <h4>Facebook Only</h4>
+        <p>Marketplace leads are unpredictable. A proper digital system creates consistent, recurring inbound inquiries.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <div class="services">
+    <h3>What's Included — Essential Package</h3>
+
+    <div class="service-item">
+      <div class="service-num">1</div>
+      <div class="service-content">
+        <h4>Professional Website — 5 to 6 Pages</h4>
+        <p>Custom built site showcasing your equipment inventory, service area, contact form, and lead capture. Built to convert visitors into rental inquiries.</p>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">2</div>
+      <div class="service-content">
+        <h4>Google Business Profile Setup & Optimization</h4>
+        <p>Full GBP build out so JCF shows up when contractors search for equipment rental in Johnson County. Photos, services, hours, and ongoing optimization.</p>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">3</div>
+      <div class="service-content">
+        <h4>Logo & Brand Package</h4>
+        <p>Professional logo design with up to 3 revisions plus a full brand pack — primary logo, icon, and color variants for all uses.</p>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">4</div>
+      <div class="service-content">
+        <h4>CRM & Automation Setup</h4>
+        <p>Missed call text back, review request automation, and lead follow up sequence so no inquiry falls through the cracks.</p>
+      </div>
+    </div>
+
+    <div class="service-item">
+      <div class="service-num">5</div>
+      <div class="service-content">
+        <h4>Social Media Management</h4>
+        <p>3 posts per week to your Facebook business page keeping JCF active, visible, and professional in front of your audience.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Pricing -->
+  <div class="pricing">
+    <h3>Investment</h3>
+    <div class="pricing-grid">
+      <div class="price-card highlight">
+        <div class="price-label">One-Time Setup</div>
+        <div class="price-amount">$500</div>
+        <div class="price-desc">Website, GBP, logo, CRM setup. Everything built and launched.</div>
+      </div>
+      <div class="price-card">
+        <div class="price-label">Monthly Retainer</div>
+        <div class="price-amount">$500<span>/mo</span></div>
+        <div class="price-desc">Social media, GBP maintenance, automation monitoring, and ongoing support.</div>
+      </div>
+    </div>
+    <p class="price-note">No long-term contracts. Cancel anytime with 30 days notice.</p>
+  </div>
+
+  <!-- ROI -->
+  <div class="roi">
+    <h3>The Math Is Simple</h3>
+    <p>
+      A standard equipment rental job ranges from <strong>$300 to $800+</strong> depending on the unit and duration. One extra rental per month generated through your new digital presence <strong>more than covers the monthly retainer</strong>. Everything beyond that is pure growth.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      <p>
+        <strong>Ready to move forward?</strong><br>
+        Reach out directly and we'll get started.<br>
+        <a href="mailto:j.holland@legacyivdigital.com" style="color:#f97316;">j.holland@legacyivdigital.com</a> &nbsp;|&nbsp;
+        <a href="tel:6824227170" style="color:#f97316;">(682) 422-7170</a>
+      </p>
+    </div>
+    <a href="https://legacyivdigital.com" class="footer-cta">View Our Work →</a>
+  </div>
+
+</div>
+</body>
+</html>
